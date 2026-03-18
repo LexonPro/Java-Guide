@@ -1,0 +1,1589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparisons - Java Learning Hub</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .comparison-card {
+            background: #1a1a2e;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #e94560;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        .comparison-card h3 {
+            color: #ffffff;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+        .comparison-table th {
+            background: #e94560;
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        .comparison-table td {
+            padding: 10px 15px;
+            border-bottom: 1px solid #2d2d44;
+            color: #e0e0e0;
+            background: #252540;
+        }
+        .comparison-table tr:nth-child(even) td {
+            background: #1e1e36;
+        }
+        .comparison-table tr:hover td {
+            background: rgba(233, 69, 96, 0.2);
+        }
+        .unit-badge {
+            display: inline-block;
+            background: #e94560;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand"><a href="index.html">Java Hub</a></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="unit1.html">Unit I</a></li>
+            <li><a href="unit2.html">Unit II</a></li>
+            <li><a href="unit3.html">Unit III</a></li>
+            <li><a href="unit4.html">Unit IV</a></li>
+            <li><a href="unit5.html">Unit V</a></li>
+            <li><a href="mcq.html">MCQ</a></li>
+            <li><a href="practice.html">Practice</a></li>
+            <li><a href="theory.html">Theory</a></li>
+            <li><a href="comparison.html" class="active">Compare</a></li>
+            <li><a href="cheatsheet.html">Cheatsheet</a></li>
+        </ul>
+    </nav>
+
+    <header class="unit-header">
+        <h1>Java Comparisons</h1>
+        <p>All important differences and comparisons at one place for quick revision</p>
+    </header>
+
+    <nav class="topics-nav">
+        <ul>
+            <li><a href="#unit1-comp">Unit I</a></li>
+            <li><a href="#unit2-comp">Unit II</a></li>
+            <li><a href="#unit3-comp">Unit III</a></li>
+            <li><a href="#unit4-comp">Unit IV</a></li>
+            <li><a href="#unit5-comp">Unit V</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <!-- Unit I Comparisons -->
+        <section id="unit1-comp" class="content-section">
+            <h2>Unit I: Java Fundamentals</h2>
+
+            <div class="comparison-card">
+                <h3>JDK vs JRE vs JVM <span class="unit-badge">Unit I</span></h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Aspect</th>
+                        <th>JDK</th>
+                        <th>JRE</th>
+                        <th>JVM</th>
+                    </tr>
+                    <tr>
+                        <td>Full Form</td>
+                        <td>Java Development Kit</td>
+                        <td>Java Runtime Environment</td>
+                        <td>Java Virtual Machine</td>
+                    </tr>
+                    <tr>
+                        <td>Purpose</td>
+                        <td>Develop + Run Java programs</td>
+                        <td>Run Java programs</td>
+                        <td>Execute bytecode</td>
+                    </tr>
+                    <tr>
+                        <td>Contains</td>
+                        <td>JRE + Dev tools (javac, jdb)</td>
+                        <td>JVM + Libraries</td>
+                        <td>Execution engine</td>
+                    </tr>
+                    <tr>
+                        <td>User</td>
+                        <td>Developers</td>
+                        <td>End users</td>
+                        <td>Internal component</td>
+                    </tr>
+                    <tr>
+                        <td>Platform</td>
+                        <td>Platform dependent</td>
+                        <td>Platform dependent</td>
+                        <td>Platform dependent</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="comparison-card">
+                <h3>Method Overloading vs Method Overriding <span class="unit-badge">Unit I</span></h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Aspect</th>
+                        <th>Method Overloading</th>
+                        <th>Method Overriding</th>
+                    </tr>
+                    <tr>
+                        <td>Definition</td>
+                        <td>Same method name, different parameters</td>
+                        <td>Same method signature in parent-child</td>
+                    </tr>
+                    <tr>
+                        <td>Polymorphism</td>
+                        <td>Compile-time (Static)</td>
+                        <td>Runtime (Dynamic)</td>
+                    </tr>
+                    <tr>
+                        <td>Classes</td>
+                        <td>Within same class</td>
+                        <td>Between parent-child classes</td>
+                    </tr>
+                    <tr>
+                        <td>Parameters</td>
+                        <td>Must be different</td>
+                        <td>Must be same</td>
+                    </tr>
+                    <tr>
+                        <td>Return Type</td>
+                        <td>Can be different</td>
+                        <td>Must be same or covariant</td>
+                    </tr>
+                    <tr>
+                        <td>Access Modifier</td>
+                        <td>Can be any</td>
+                        <td>Cannot be more restrictive</td>
+                    </tr>
+                    <tr>
+                        <td>static/private/final</td>
+                        <td>Can be overloaded</td>
+                        <td>Cannot be overridden</td>
+                    </tr>
+                    <tr>
+                        <td>Binding</td>
+                        <td>Early binding</td>
+                        <td>Late binding</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="comparison-card">
+                <h3>Abstract Class vs Interface <span class="unit-badge">Unit I</span></h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Aspect</th>
+                        <th>Abstract Class</th>
+                        <th>Interface</th>
+                    </tr>
+                    <tr>
+                        <td>Methods</td>
+                        <td>Abstract + Concrete methods</td>
+                        <td>Abstract (default/static since Java 8)</td>
+                    </tr>
+                    <tr>
+                        <td>Variables</td>
+                        <td>Any type (instance, static, final)</td>
+                        <td>Only public static final (constants)</td>
+                    </tr>
+                    <tr>
+                        <td>Constructors</td>
+                        <td>Can have constructors</td>
+                        <td>Cannot have constructors</td>
+                    </tr>
+                    <tr>
+                        <td>Inheritance</td>
+                        <td>Single (extends one)</td>
+                        <td>Multiple (implements many)</td>
+                    </tr>
+                    <tr>
+                        <td>Access Modifiers</td>
+                        <td>Any access modifier</td>
+                        <td>Methods public by default</td>
+                    </tr>
+                    <tr>
+                        <td>Keyword</td>
+                        <td>extends</td>
+                        <td>implements</td>
+                    </tr>
+                    <tr>
+                        <td>When to Use</td>
+                        <td>Share code among related classes</td>
+                        <td>Define contract for unrelated classes</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="comparison-card">
+                <h3>== vs equals() <span class="unit-badge">Unit I</span></h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Aspect</th>
+                        <th>== Operator</th>
+                        <th>equals() Method</th>
+                    </tr>
+                    <tr>
+                        <td>Type</td>
+                        <td>Operator</td>
+                        <td>Method (Object class)</td>
+                    </tr>
+                    <tr>
+                        <td>For Primitives</td>
+                        <td>Compares values</td>
+                        <td>Cannot be used</td>
+                    </tr>
+                    <tr>
+                        <td>For Objects</td>
+                        <td>Compares references (memory address)</td>
+                        <td>Compares content (if overridden)</td>
+                    </tr>
+                    <tr>
+                        <td>Override</td>
+                        <td>Cannot be overridden</td>
+                        <td>Can be overridden</td>
+                    </tr>
+                    <tr>
+                        <td>Null Safe</td>
+                        <td>Yes</td>
+                        <td>No (throws NPE)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="comparison-card">
+                <h3>String vs StringBuilder vs StringBuffer <span class="unit-badge">Unit I</span></h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Aspect</th>
+                        <th>String</th>
+                        <th>StringBuilder</th>
+                        <th>StringBuffer</th>
+                    </tr>
+                    <tr>
+                        <td>Mutability</td>
+                        <td>Immutable</td>
+                        <td>Mutable</td>
+                        <td>Mutable</td>
+                    </tr>
+                    <tr>
+                        <td>Thread Safe</td>
+                        <td>Yes (immutable)</td>
+                        <td>No</td>
+                        <td>Yes (synchronized)</td>
+                    </tr>
+                    <tr>
+                        <td>Performance</td>
+                        <td>Slow for modifications</td>
+                        <td>Fastest</td>
+                        <td>Slower than StringBuilder</td>
+                    </tr>
+                    <tr>
+                        <td>Storage</td>
+                        <td>String Pool + Heap</td>
+                        <td>Heap only</td>
+                        <td>Heap only</td>
+                    </tr>
+                    <tr>
+                        <td>When to Use</td>
+                        <td>Few modifications</td>
+                        <td>Single-threaded, many modifications</td>
+                        <td>Multi-threaded, many modifications</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="comparison-card">
+                <h3>this vs super Keyword <span class="unit-badge">Unit I</span></h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Aspect</th>
+                        <th>this</th>
+                        <th>super</th>
+                    </tr>
+                    <tr>
+                        <td>Refers to</td>
+                        <td>Current class instance</td>
+                        <td>Immediate parent class</td>
+                    </tr>
+                    <tr>
+                        <td>Variables</td>
+                        <td>Access current class variables</td>
+                        <td>Access parent class variables</td>
+                    </tr>
+                    <tr>
+                        <td>Methods</td>
+                        <td>Invoke current class methods</td>
+                        <td>Invoke parent class methods</td>
+                    </tr>
+                    <tr>
+                        <td>Constructor</td>
+                        <td>this() - current class constructor</td>
+                        <td>super() - parent class constructor</td>
+                    </tr>
+                    <tr>
+                        <td>Static Context</td>
+                        <td>Cannot be used</td>
+                        <td>Cannot be used</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="comparison-card">
+                <h3>final vs finally vs finalize <span class="unit-badge">Unit I</span></h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Aspect</th>
+                        <th>final</th>
+                        <th>finally</th>
+                        <th>finalize</th>
+                    </tr>
+                    <tr>
+                        <td>Type</td>
+                        <td>Keyword</td>
+                        <td>Block</td>
+                        <td>Method</td>
+                    </tr>
+                    <tr>
+                        <td>Purpose</td>
+                        <td>Restrict modification</td>
+                        <td>Execute cleanup code</td>
+                        <td>Cleanup before GC</td>
+                    </tr>
+                    <tr>
+                        <td>Usage</td>
+                        <td>Variable, method, class</td>
+                        <td>With try-catch</td>
+                        <td>Object class method</td>
+                    </tr>
+                    <tr>
+                        <td>Execution</td>
+                        <td>Compile time check</td>
+                        <td>Always executes</td>
+                        <td>Called by GC (uncertain)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="comparison-card">
+                <h3>Access Modifiers <span class="unit-badge">Unit I</span></h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Modifier</th>
+                        <th>Same Class</th>
+                        <th>Same Package</th>
+                        <th>Subclass (Diff Pkg)</th>
+                        <th>Different Package</th>
+                    </tr>
+                    <tr>
+                        <td>public</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td>protected</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td>default</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>No</td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td>private</td>
+                        <td>Yes</td>
+                        <td>No</td>
+                        <td>No</td>
+                        <td>No</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="comparison-card">
+                <h3>Abstraction vs Encapsulation <span class="unit-badge">Unit I</span></h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Aspect</th>
+                        <th>Abstraction</th>
+                        <th>Encapsulation</th>
+                    </tr>
+                    <tr>
+                        <td>Focus</td>
+                        <td>WHAT an object does</td>
+                        <td>HOW an object does it</td>
+                    </tr>
+                    <tr>
+                        <td>Hides</td>
+                        <td>Implementation complexity</td>
+                        <td>Data from outside</td>
+                    </tr>
+                    <tr>
+                        <td>Achieved By</td>
+                        <td>Abstract class, Interface</td>
+                        <td>Private fields, public methods</td>
+                    </tr>
+                    <tr>
+                        <td>Level</td>
+                        <td>Design level</td>
+                        <td>Implementation level</td>
+                    </tr>
+                    <tr>
+                        <td>Example</td>
+                        <td>Interface methods</td>
+                        <td>Getters/Setters</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <!-- Unit II Comparisons -->
+        <section id="unit2-comp" class="content-section">
+            <h2>Unit II: Exception Handling, I/O, Multithreading</h2>
+
+            <div class="comparison-card">
+                <h3>Checked vs Unchecked Exceptions <span class="unit-badge">Unit II</span></h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Aspect</th>
+                        <th>Checked Exceptions</th>
+                        <th>Unchecked Exceptions</th>
+                    </tr>
+                    <tr>
+                        <td>Checked at</td>
+                        <td>Compile time</td>
+                        <td>Runtime</td>
+                    </tr>
+                    <tr>
+                        <td>Handling</td>
+                        <td>Must handle (try-catch) or declare (throws)</td>
+                        <td>Optional to handle</td>
+                    </tr>
+                    <tr>
+                        <td>Inheritance</td>
+                        <td>Extends Exception (not RuntimeException)</td>
+                        <td>Extends RuntimeException</td>
+                    </tr>
+                    <tr>
+                        <td>Examples</td>
+                        <td>IOException, SQLException, FileNotFoundException</td>
+                        <td>NullPointerException, ArithmeticException</td>
+                    </tr>
+                    <tr>
+                        <td>Cause</td>
+                        <td>External resources (file, network, DB)</td>
+                        <td>Programming errors (logic bugs)</td>
+                    </tr>
+                    <tr>
+                        <td>Recovery</td>
+                        <td>Usually recoverable</td>
+                        <td>Usually indicates bugs</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="comparison-card">
+                <h3>throw vs throws <span class="unit-badge">Unit II</span></h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Aspect</th>
+                        <th>throw</th>
+                        <th>throws</th>
+                    </tr>
+                    <tr>
+                        <td>Purpose</td>
+                        <td>Actually throws an exception</td>
+                        <td>Declares exceptions method might throw</td>
+                    </tr>
+                    <tr>
+                        <td>Location</td>
+                        <td>Inside method body</td>
+                        <td>In method signature</td>
+                    </tr>
+                    <tr>
+                        <td>Syntax</td>
+                        <td>throw new Exception()</td>
+                        <td>method() throws Exception</td>
+                    </tr>
+                    <tr>
+                        <td>Number</td>
+                        <td>One exception at a time</td>
+                        <td>Multiple exceptions (comma-separated)</td>
+                    </tr>
+                    <tr>
+                        <td>Followed by</td>
+                        <td>Exception instance</td>
+                        <td>Exception class name(s)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="comparison-card">
+                <h3>Byte Stream vs Character Stream <span class="unit-badge">Unit II</span></h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Aspect</th>
+                        <th>Byte Stream</th>
+                        <th>Character Stream</th>
+                    </tr>
+                    <tr>
+                        <td>Data Unit</td>
+                        <td>8-bit bytes</td>
+                        <td>16-bit Unicode characters</td>
+                    </tr>
+                    <tr>
+                        <td>Base Classes</td>
+                        <td>InputStream, OutputStream</td>
+                        <td>Reader, Writer</td>
+                    </tr>
+                    <tr>
+                        <td>Use For</td>
+                        <td>Binary data (images, audio, video)</td>
+                        <td>Text data</td>
+                    </tr>
+                    <tr>
+                        <td>File Classes</td>
+                        <td>FileInputStream, FileOutputStream</td>
+                        <td>FileReader, FileWriter</td>
+                    </tr>
+                    <tr>
+                        <td>Buffered Classes</td>
+                        <td>BufferedInputStream, BufferedOutputStream</td>
+                        <td>BufferedReader, BufferedWriter</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="comparison-card">
+                <h3>Process vs Thread <span class="unit-badge">Unit II</span></h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Aspect</th>
+                        <th>Process</th>
+                        <th>Thread</th>
+                    </tr>
+                    <tr>
+                        <td>Definition</td>
+                        <td>Independent program in execution</td>
+                        <td>Lightweight subprocess within process</td>
+                    </tr>
+                    <tr>
+                        <td>Memory</td>
+                        <td>Own memory space (heap, stack)</td>
+                        <td>Shares memory with parent process</td>
+                    </tr>
+                    <tr>
+                        <td>Communication</td>
+                        <td>Inter-process communication (IPC) - complex</td>
+                        <td>Direct via shared memory</td>
+                    </tr>
+                    <tr>
+                        <td>Overhead</td>
+                        <td>Heavy - more resources</td>
+                        <td>Light - less resources</td>
+                    </tr>
+                    <tr>
+                        <td>Creation Time</td>
+                        <td>Slower</td>
+                        <td>Faster</td>
+                    </tr>
+                    <tr>
+                        <td>Context Switch</td>
+                        <td>Expensive</td>
+                        <td>Cheaper</td>
+                    </tr>
+                    <tr>
+                        <td>Failure Impact</td>
+                        <td>One crash doesn't affect others</td>
+                        <td>Thread crash can affect entire process</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="comparison-card">
+                <h3>wait() vs sleep() <span class="unit-badge">Unit II</span></h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Aspect</th>
+                        <th>wait()</th>
+                        <th>sleep()</th>
+                    </tr>
+                    <tr>
+                        <td>Class</td>
+                        <td>Object</td>
+                        <td>Thread</td>
+                    </tr>
+                    <tr>
+                        <td>Lock</td>
+                        <td>Releases the lock</td>
+                        <td>Holds the lock</td>
+                    </tr>
+                    <tr>
+                        <td>Context</td>
+                        <td>Must be in synchronized block</td>
+                        <td>Can be called anywhere</td>
+                    </tr>
+                    <tr>
+                        <td>Wake up</td>
+                        <td>notify()/notifyAll() or timeout</td>
+                        <td>After time elapsed</td>
+                    </tr>
+                    <tr>
+                        <td>Purpose</td>
+                        <td>Inter-thread communication</td>
+                        <td>Pause execution</td>
+                    </tr>
+                    <tr>
+                        <td>Static</td>
+                        <td>No (instance method)</td>
+                        <td>Yes (static method)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="comparison-card">
+                <h3>extends Thread vs implements Runnable <span class="unit-badge">Unit II</span></h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Aspect</th>
+                        <th>extends Thread</th>
+                        <th>implements Runnable</th>
+                    </tr>
+                    <tr>
+                        <td>Inheritance</td>
+                        <td>Cannot extend another class</td>
+                        <td>Can extend another class</td>
+                    </tr>
+                    <tr>
+                        <td>Reusability</td>
+                        <td>Less reusable</td>
+                        <td>More reusable</td>
+                    </tr>
+                    <tr>
+                        <td>Thread Pool</td>
+                        <td>Cannot use directly</td>
+                        <td>Works with ExecutorService</td>
+                    </tr>
+                    <tr>
+                        <td>Overhead</td>
+                        <td>Each object is a thread</td>
+                        <td>Separates task from thread</td>
+                    </tr>
+                    <tr>
+                        <td>Recommendation</td>
+                        <td>Less preferred</td>
+                        <td>Preferred approach</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="comparison-card">
+                <h3>Runnable vs Callable <span class="unit-badge">Unit II</span></h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Aspect</th>
+                        <th>Runnable</th>
+                        <th>Callable</th>
+                    </tr>
+                    <tr>
+                        <td>Method</td>
+                        <td>run()</td>
+                        <td>call()</td>
+                    </tr>
+                    <tr>
+                        <td>Return Type</td>
+                        <td>void (no return)</td>
+                        <td>Generic type V</td>
+                    </tr>
+                    <tr>
+                        <td>Exceptions</td>
+                        <td>Cannot throw checked exceptions</td>
+                        <td>Can throw checked exceptions</td>
+                    </tr>
+                    <tr>
+                        <td>Usage</td>
+                        <td>Thread, ExecutorService</td>
+                        <td>ExecutorService only</td>
+                    </tr>
+                    <tr>
+                        <td>Result</td>
+                        <td>Cannot return result</td>
+                        <td>Returns Future&lt;V&gt;</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="comparison-card">
+                <h3>synchronized vs volatile <span class="unit-badge">Unit II</span></h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Aspect</th>
+                        <th>synchronized</th>
+                        <th>volatile</th>
+                    </tr>
+                    <tr>
+                        <td>Atomicity</td>
+                        <td>Yes (compound operations)</td>
+                        <td>No (only read/write)</td>
+                    </tr>
+                    <tr>
+                        <td>Visibility</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td>Blocking</td>
+                        <td>Yes (acquires lock)</td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td>Use On</td>
+                        <td>Methods, blocks</td>
+                        <td>Variables only</td>
+                    </tr>
+                    <tr>
+                        <td>Performance</td>
+                        <td>Slower</td>
+                        <td>Faster</td>
+                    </tr>
+                    <tr>
+                        <td>When to Use</td>
+                        <td>Compound operations, mutual exclusion</td>
+                        <td>Simple flags, single writes</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <!-- Unit III Comparisons -->
+        <section id="unit3-comp" class="content-section">
+            <h2>Unit III: Modern Java Features</h2>
+
+            <div class="comparison-card">
+                <h3>Intermediate vs Terminal Operations (Streams) <span class="unit-badge">Unit III</span></h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Aspect</th>
+                        <th>Intermediate Operations</th>
+                        <th>Terminal Operations</th>
+                    </tr>
+                    <tr>
+                        <td>Return Type</td>
+                        <td>Returns Stream</td>
+                        <td>Returns non-Stream (void, Optional, etc.)</td>
+                    </tr>
+                    <tr>
+                        <td>Execution</td>
+                        <td>Lazy - not executed until terminal called</td>
+                        <td>Eager - triggers pipeline execution</td>
+                    </tr>
+                    <tr>
+                        <td>Chaining</td>
+                        <td>Can be chained</td>
+                        <td>Ends the pipeline</td>
+                    </tr>
+                    <tr>
+                        <td>Examples</td>
+                        <td>filter, map, flatMap, sorted, distinct, peek, limit, skip</td>
+                        <td>forEach, collect, reduce, count, min, max, findFirst</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="comparison-card">
+                <h3>Lambda vs Anonymous Class <span class="unit-badge">Unit III</span></h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Aspect</th>
+                        <th>Lambda Expression</th>
+                        <th>Anonymous Class</th>
+                    </tr>
+                    <tr>
+                        <td>Syntax</td>
+                        <td>Concise: (x) -> x * 2</td>
+                        <td>Verbose: new Interface() { ... }</td>
+                    </tr>
+                    <tr>
+                        <td>Interface</td>
+                        <td>Only functional interfaces</td>
+                        <td>Any interface or abstract class</td>
+                    </tr>
+                    <tr>
+                        <td>this Keyword</td>
+                        <td>Refers to enclosing class</td>
+                        <td>Refers to anonymous class itself</td>
+                    </tr>
+                    <tr>
+                        <td>State</td>
+                        <td>Cannot have state (fields)</td>
+                        <td>Can have instance variables</td>
+                    </tr>
+                    <tr>
+                        <td>Compilation</td>
+                        <td>Uses invokedynamic</td>
+                        <td>Creates separate .class file</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="comparison-card">
+                <h3>Functional Interface Types <span class="unit-badge">Unit III</span></h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Interface</th>
+                        <th>Method</th>
+                        <th>Input</th>
+                        <th>Output</th>
+                        <th>Use Case</th>
+                    </tr>
+                    <tr>
+                        <td>Predicate&lt;T&gt;</td>
+                        <td>test(T t)</td>
+                        <td>T</td>
+                        <td>boolean</td>
+                        <td>Filtering, conditions</td>
+                    </tr>
+                    <tr>
+                        <td>Function&lt;T,R&gt;</td>
+                        <td>apply(T t)</td>
+                        <td>T</td>
+                        <td>R</td>
+                        <td>Transformations</td>
+                    </tr>
+                    <tr>
+                        <td>Consumer&lt;T&gt;</td>
+                        <td>accept(T t)</td>
+                        <td>T</td>
+                        <td>void</td>
+                        <td>Side effects</td>
+                    </tr>
+                    <tr>
+                        <td>Supplier&lt;T&gt;</td>
+                        <td>get()</td>
+                        <td>None</td>
+                        <td>T</td>
+                        <td>Factory, lazy values</td>
+                    </tr>
+                    <tr>
+                        <td>BiFunction&lt;T,U,R&gt;</td>
+                        <td>apply(T t, U u)</td>
+                        <td>T, U</td>
+                        <td>R</td>
+                        <td>Two-input transform</td>
+                    </tr>
+                    <tr>
+                        <td>UnaryOperator&lt;T&gt;</td>
+                        <td>apply(T t)</td>
+                        <td>T</td>
+                        <td>T</td>
+                        <td>Same type transform</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="comparison-card">
+                <h3>Stream vs Collection <span class="unit-badge">Unit III</span></h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Aspect</th>
+                        <th>Collection</th>
+                        <th>Stream</th>
+                    </tr>
+                    <tr>
+                        <td>Storage</td>
+                        <td>Stores elements</td>
+                        <td>Doesn't store elements</td>
+                    </tr>
+                    <tr>
+                        <td>Modification</td>
+                        <td>Can add/remove elements</td>
+                        <td>Cannot modify source</td>
+                    </tr>
+                    <tr>
+                        <td>Iteration</td>
+                        <td>External iteration</td>
+                        <td>Internal iteration</td>
+                    </tr>
+                    <tr>
+                        <td>Traversal</td>
+                        <td>Multiple times</td>
+                        <td>Single traversal only</td>
+                    </tr>
+                    <tr>
+                        <td>Evaluation</td>
+                        <td>Eager</td>
+                        <td>Lazy</td>
+                    </tr>
+                    <tr>
+                        <td>Parallelism</td>
+                        <td>Manual</td>
+                        <td>Built-in (parallelStream)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="comparison-card">
+                <h3>map() vs flatMap() <span class="unit-badge">Unit III</span></h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Aspect</th>
+                        <th>map()</th>
+                        <th>flatMap()</th>
+                    </tr>
+                    <tr>
+                        <td>Transformation</td>
+                        <td>One-to-one</td>
+                        <td>One-to-many (flattened)</td>
+                    </tr>
+                    <tr>
+                        <td>Output</td>
+                        <td>Stream&lt;Stream&lt;R&gt;&gt; possible</td>
+                        <td>Stream&lt;R&gt; (flattened)</td>
+                    </tr>
+                    <tr>
+                        <td>Function returns</td>
+                        <td>Single value</td>
+                        <td>Stream of values</td>
+                    </tr>
+                    <tr>
+                        <td>Use case</td>
+                        <td>Simple transformations</td>
+                        <td>Nested collections/Optional</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <!-- Unit IV Comparisons -->
+        <section id="unit4-comp" class="content-section">
+            <h2>Unit IV: Collections Framework</h2>
+
+            <div class="comparison-card">
+                <h3>ArrayList vs LinkedList <span class="unit-badge">Unit IV</span></h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Aspect</th>
+                        <th>ArrayList</th>
+                        <th>LinkedList</th>
+                    </tr>
+                    <tr>
+                        <td>Internal Structure</td>
+                        <td>Dynamic array</td>
+                        <td>Doubly linked list</td>
+                    </tr>
+                    <tr>
+                        <td>Random Access</td>
+                        <td>O(1) - excellent</td>
+                        <td>O(n) - poor</td>
+                    </tr>
+                    <tr>
+                        <td>Insert at beginning</td>
+                        <td>O(n) - shifts elements</td>
+                        <td>O(1) - just update links</td>
+                    </tr>
+                    <tr>
+                        <td>Insert at end</td>
+                        <td>O(1) amortized</td>
+                        <td>O(1)</td>
+                    </tr>
+                    <tr>
+                        <td>Memory</td>
+                        <td>Contiguous, less overhead</td>
+                        <td>Non-contiguous, more overhead</td>
+                    </tr>
+                    <tr>
+                        <td>Cache Locality</td>
+                        <td>Good</td>
+                        <td>Poor</td>
+                    </tr>
+                    <tr>
+                        <td>Implements</td>
+                        <td>List, RandomAccess</td>
+                        <td>List, Deque, Queue</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="comparison-card">
+                <h3>HashSet vs LinkedHashSet vs TreeSet <span class="unit-badge">Unit IV</span></h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Aspect</th>
+                        <th>HashSet</th>
+                        <th>LinkedHashSet</th>
+                        <th>TreeSet</th>
+                    </tr>
+                    <tr>
+                        <td>Internal Structure</td>
+                        <td>Hash table</td>
+                        <td>Hash table + Linked list</td>
+                        <td>Red-Black tree</td>
+                    </tr>
+                    <tr>
+                        <td>Ordering</td>
+                        <td>No order</td>
+                        <td>Insertion order</td>
+                        <td>Sorted order</td>
+                    </tr>
+                    <tr>
+                        <td>Performance</td>
+                        <td>O(1)</td>
+                        <td>O(1)</td>
+                        <td>O(log n)</td>
+                    </tr>
+                    <tr>
+                        <td>Null Elements</td>
+                        <td>One null allowed</td>
+                        <td>One null allowed</td>
+                        <td>No null</td>
+                    </tr>
+                    <tr>
+                        <td>Memory</td>
+                        <td>Less</td>
+                        <td>More</td>
+                        <td>More</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="comparison-card">
+                <h3>HashMap vs LinkedHashMap vs TreeMap <span class="unit-badge">Unit IV</span></h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Aspect</th>
+                        <th>HashMap</th>
+                        <th>LinkedHashMap</th>
+                        <th>TreeMap</th>
+                    </tr>
+                    <tr>
+                        <td>Internal Structure</td>
+                        <td>Hash table</td>
+                        <td>Hash table + Linked list</td>
+                        <td>Red-Black tree</td>
+                    </tr>
+                    <tr>
+                        <td>Ordering</td>
+                        <td>No order</td>
+                        <td>Insertion/Access order</td>
+                        <td>Sorted by keys</td>
+                    </tr>
+                    <tr>
+                        <td>Performance</td>
+                        <td>O(1)</td>
+                        <td>O(1)</td>
+                        <td>O(log n)</td>
+                    </tr>
+                    <tr>
+                        <td>Null Keys</td>
+                        <td>One allowed</td>
+                        <td>One allowed</td>
+                        <td>Not allowed</td>
+                    </tr>
+                    <tr>
+                        <td>Thread-safe</td>
+                        <td>No</td>
+                        <td>No</td>
+                        <td>No</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="comparison-card">
+                <h3>HashMap vs Hashtable <span class="unit-badge">Unit IV</span></h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Aspect</th>
+                        <th>HashMap</th>
+                        <th>Hashtable</th>
+                    </tr>
+                    <tr>
+                        <td>Thread Safety</td>
+                        <td>Not synchronized</td>
+                        <td>Synchronized (thread-safe)</td>
+                    </tr>
+                    <tr>
+                        <td>Null Keys</td>
+                        <td>One null key allowed</td>
+                        <td>Not allowed</td>
+                    </tr>
+                    <tr>
+                        <td>Null Values</td>
+                        <td>Multiple allowed</td>
+                        <td>Not allowed</td>
+                    </tr>
+                    <tr>
+                        <td>Performance</td>
+                        <td>Faster</td>
+                        <td>Slower</td>
+                    </tr>
+                    <tr>
+                        <td>Inheritance</td>
+                        <td>AbstractMap</td>
+                        <td>Dictionary (legacy)</td>
+                    </tr>
+                    <tr>
+                        <td>Introduced</td>
+                        <td>Java 1.2</td>
+                        <td>Java 1.0</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="comparison-card">
+                <h3>Comparable vs Comparator <span class="unit-badge">Unit IV</span></h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Aspect</th>
+                        <th>Comparable</th>
+                        <th>Comparator</th>
+                    </tr>
+                    <tr>
+                        <td>Package</td>
+                        <td>java.lang</td>
+                        <td>java.util</td>
+                    </tr>
+                    <tr>
+                        <td>Method</td>
+                        <td>compareTo(Object o)</td>
+                        <td>compare(Object o1, Object o2)</td>
+                    </tr>
+                    <tr>
+                        <td>Implementation</td>
+                        <td>Class itself implements</td>
+                        <td>Separate class or lambda</td>
+                    </tr>
+                    <tr>
+                        <td>Sort Sequences</td>
+                        <td>Single natural ordering</td>
+                        <td>Multiple custom orderings</td>
+                    </tr>
+                    <tr>
+                        <td>Modification</td>
+                        <td>Requires modifying original class</td>
+                        <td>No modification needed</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="comparison-card">
+                <h3>Iterator vs ListIterator <span class="unit-badge">Unit IV</span></h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Aspect</th>
+                        <th>Iterator</th>
+                        <th>ListIterator</th>
+                    </tr>
+                    <tr>
+                        <td>Direction</td>
+                        <td>Forward only</td>
+                        <td>Forward and backward</td>
+                    </tr>
+                    <tr>
+                        <td>Methods</td>
+                        <td>hasNext(), next()</td>
+                        <td>+ hasPrevious(), previous()</td>
+                    </tr>
+                    <tr>
+                        <td>Modification</td>
+                        <td>remove() only</td>
+                        <td>+ add(), set()</td>
+                    </tr>
+                    <tr>
+                        <td>Index Access</td>
+                        <td>No</td>
+                        <td>nextIndex(), previousIndex()</td>
+                    </tr>
+                    <tr>
+                        <td>Works With</td>
+                        <td>Any Collection</td>
+                        <td>List only</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="comparison-card">
+                <h3>Fail-fast vs Fail-safe Iterator <span class="unit-badge">Unit IV</span></h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Aspect</th>
+                        <th>Fail-fast</th>
+                        <th>Fail-safe</th>
+                    </tr>
+                    <tr>
+                        <td>Concurrent Modification</td>
+                        <td>Throws ConcurrentModificationException</td>
+                        <td>No exception</td>
+                    </tr>
+                    <tr>
+                        <td>Works On</td>
+                        <td>Original collection</td>
+                        <td>Clone of collection</td>
+                    </tr>
+                    <tr>
+                        <td>Memory</td>
+                        <td>No extra memory</td>
+                        <td>Extra memory for clone</td>
+                    </tr>
+                    <tr>
+                        <td>Examples</td>
+                        <td>ArrayList, HashMap</td>
+                        <td>ConcurrentHashMap, CopyOnWriteArrayList</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="comparison-card">
+                <h3>List vs Set vs Map <span class="unit-badge">Unit IV</span></h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Aspect</th>
+                        <th>List</th>
+                        <th>Set</th>
+                        <th>Map</th>
+                    </tr>
+                    <tr>
+                        <td>Duplicates</td>
+                        <td>Allowed</td>
+                        <td>Not allowed</td>
+                        <td>Duplicate values allowed, not keys</td>
+                    </tr>
+                    <tr>
+                        <td>Ordering</td>
+                        <td>Maintains insertion order</td>
+                        <td>Depends on implementation</td>
+                        <td>Depends on implementation</td>
+                    </tr>
+                    <tr>
+                        <td>Null</td>
+                        <td>Multiple nulls allowed</td>
+                        <td>One null (HashSet)</td>
+                        <td>One null key (HashMap)</td>
+                    </tr>
+                    <tr>
+                        <td>Index Access</td>
+                        <td>Yes (get(i))</td>
+                        <td>No</td>
+                        <td>By key (get(key))</td>
+                    </tr>
+                    <tr>
+                        <td>Examples</td>
+                        <td>ArrayList, LinkedList</td>
+                        <td>HashSet, TreeSet</td>
+                        <td>HashMap, TreeMap</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <!-- Unit V Comparisons -->
+        <section id="unit5-comp" class="content-section">
+            <h2>Unit V: Spring Framework</h2>
+
+            <div class="comparison-card">
+                <h3>Spring vs Spring Boot <span class="unit-badge">Unit V</span></h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Aspect</th>
+                        <th>Spring Framework</th>
+                        <th>Spring Boot</th>
+                    </tr>
+                    <tr>
+                        <td>Configuration</td>
+                        <td>Manual (XML or Java config)</td>
+                        <td>Auto-configuration</td>
+                    </tr>
+                    <tr>
+                        <td>Server</td>
+                        <td>External (Tomcat, Jetty)</td>
+                        <td>Embedded server</td>
+                    </tr>
+                    <tr>
+                        <td>Dependencies</td>
+                        <td>Manage individually</td>
+                        <td>Starter dependencies</td>
+                    </tr>
+                    <tr>
+                        <td>Setup Time</td>
+                        <td>Longer</td>
+                        <td>Minimal</td>
+                    </tr>
+                    <tr>
+                        <td>Deployment</td>
+                        <td>WAR to external server</td>
+                        <td>JAR with embedded server</td>
+                    </tr>
+                    <tr>
+                        <td>Properties</td>
+                        <td>Multiple config files</td>
+                        <td>application.properties/yml</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="comparison-card">
+                <h3>BeanFactory vs ApplicationContext <span class="unit-badge">Unit V</span></h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Aspect</th>
+                        <th>BeanFactory</th>
+                        <th>ApplicationContext</th>
+                    </tr>
+                    <tr>
+                        <td>Bean Loading</td>
+                        <td>Lazy (on request)</td>
+                        <td>Eager (at startup)</td>
+                    </tr>
+                    <tr>
+                        <td>AOP Support</td>
+                        <td>No</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td>i18n</td>
+                        <td>No</td>
+                        <td>Yes (MessageSource)</td>
+                    </tr>
+                    <tr>
+                        <td>Event Publishing</td>
+                        <td>No</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td>Web Support</td>
+                        <td>No</td>
+                        <td>Yes (WebApplicationContext)</td>
+                    </tr>
+                    <tr>
+                        <td>Use Case</td>
+                        <td>Simple apps, memory constrained</td>
+                        <td>Enterprise applications</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="comparison-card">
+                <h3>Constructor vs Setter vs Field Injection <span class="unit-badge">Unit V</span></h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Aspect</th>
+                        <th>Constructor</th>
+                        <th>Setter</th>
+                        <th>Field</th>
+                    </tr>
+                    <tr>
+                        <td>Recommended</td>
+                        <td>Yes (preferred)</td>
+                        <td>Sometimes</td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td>Immutability</td>
+                        <td>Supports (final fields)</td>
+                        <td>No</td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td>Required Dependencies</td>
+                        <td>Best for required</td>
+                        <td>Best for optional</td>
+                        <td>No indication</td>
+                    </tr>
+                    <tr>
+                        <td>Testing</td>
+                        <td>Easy (no reflection)</td>
+                        <td>Easy</td>
+                        <td>Needs reflection</td>
+                    </tr>
+                    <tr>
+                        <td>Circular Dependencies</td>
+                        <td>Prevented</td>
+                        <td>Allowed</td>
+                        <td>Allowed</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="comparison-card">
+                <h3>@Controller vs @RestController <span class="unit-badge">Unit V</span></h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Aspect</th>
+                        <th>@Controller</th>
+                        <th>@RestController</th>
+                    </tr>
+                    <tr>
+                        <td>Return Type</td>
+                        <td>View name (String)</td>
+                        <td>Data (JSON/XML)</td>
+                    </tr>
+                    <tr>
+                        <td>@ResponseBody</td>
+                        <td>Required on each method</td>
+                        <td>Implicit on all methods</td>
+                    </tr>
+                    <tr>
+                        <td>Use Case</td>
+                        <td>MVC web applications</td>
+                        <td>REST APIs</td>
+                    </tr>
+                    <tr>
+                        <td>Combines</td>
+                        <td>@Component</td>
+                        <td>@Controller + @ResponseBody</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="comparison-card">
+                <h3>@PathVariable vs @RequestParam <span class="unit-badge">Unit V</span></h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Aspect</th>
+                        <th>@PathVariable</th>
+                        <th>@RequestParam</th>
+                    </tr>
+                    <tr>
+                        <td>Source</td>
+                        <td>URL path: /users/{id}</td>
+                        <td>Query string: /users?id=123</td>
+                    </tr>
+                    <tr>
+                        <td>Required</td>
+                        <td>Yes by default</td>
+                        <td>Yes by default (configurable)</td>
+                    </tr>
+                    <tr>
+                        <td>Default Value</td>
+                        <td>Not supported</td>
+                        <td>Supported (defaultValue)</td>
+                    </tr>
+                    <tr>
+                        <td>RESTful</td>
+                        <td>More RESTful (resource identifier)</td>
+                        <td>For filtering, pagination</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="comparison-card">
+                <h3>Stereotype Annotations <span class="unit-badge">Unit V</span></h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Annotation</th>
+                        <th>Layer</th>
+                        <th>Special Behavior</th>
+                        <th>Use Case</th>
+                    </tr>
+                    <tr>
+                        <td>@Component</td>
+                        <td>Any</td>
+                        <td>Base annotation</td>
+                        <td>Generic beans</td>
+                    </tr>
+                    <tr>
+                        <td>@Service</td>
+                        <td>Service</td>
+                        <td>Semantic clarity</td>
+                        <td>Business logic</td>
+                    </tr>
+                    <tr>
+                        <td>@Repository</td>
+                        <td>DAO</td>
+                        <td>Exception translation</td>
+                        <td>Data access</td>
+                    </tr>
+                    <tr>
+                        <td>@Controller</td>
+                        <td>Web</td>
+                        <td>MVC controller</td>
+                        <td>Web requests</td>
+                    </tr>
+                    <tr>
+                        <td>@RestController</td>
+                        <td>REST</td>
+                        <td>@Controller + @ResponseBody</td>
+                        <td>REST APIs</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="comparison-card">
+                <h3>Bean Scopes <span class="unit-badge">Unit V</span></h3>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Scope</th>
+                        <th>Instances</th>
+                        <th>Lifecycle</th>
+                        <th>Use Case</th>
+                    </tr>
+                    <tr>
+                        <td>singleton</td>
+                        <td>One per container</td>
+                        <td>Container lifetime</td>
+                        <td>Stateless services, DAO</td>
+                    </tr>
+                    <tr>
+                        <td>prototype</td>
+                        <td>New per request</td>
+                        <td>Client manages</td>
+                        <td>Stateful beans</td>
+                    </tr>
+                    <tr>
+                        <td>request</td>
+                        <td>One per HTTP request</td>
+                        <td>Request lifetime</td>
+                        <td>Request data</td>
+                    </tr>
+                    <tr>
+                        <td>session</td>
+                        <td>One per HTTP session</td>
+                        <td>Session lifetime</td>
+                        <td>User session data</td>
+                    </tr>
+                    <tr>
+                        <td>application</td>
+                        <td>One per ServletContext</td>
+                        <td>Application lifetime</td>
+                        <td>Application-wide data</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Java Hub</h3>
+                <p>Your complete guide to mastering Java programming.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Java Learning Hub. Made for Java learners.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -20,6 +20,8 @@
             <li><a href="practice.html" class="active">Practice</a></li>
             <li><a href="theory.html">Theory</a></li>
             <li><a href="errors.html">Errors</a></li>
+            <li><a href="comparison.html">Compare</a></li>
+            <li><a href="cheatsheet.html">Cheatsheet</a></li>
         </ul>
     </nav>
 
@@ -34,6 +36,7 @@
             <li><a href="#intermediate">Intermediate</a></li>
             <li><a href="#advanced">Advanced</a></li>
             <li><a href="#more">More Problems</a></li>
+            <li><a href="#exam">Exam Practice</a></li>
         </ul>
     </nav>
 
@@ -1587,6 +1590,1201 @@
         }
     }
 }</code></pre>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <!-- Exam Practice Questions Section -->
+        <section id="exam" class="content-section">
+            <h2>Exam Practice Questions</h2>
+            <p class="section-intro">These problems are based on actual exam patterns. Practice these for your semester exams.</p>
+
+            <div class="practice-card">
+                <div class="practice-header">
+                    <h3>E1. Method Overriding - Shape and Rectangle</h3>
+                    <span class="difficulty medium">Medium</span>
+                </div>
+                <p>Write a superclass Shape with method displayArea() and subclass Rectangle implementing method overriding. Compare method overloading vs overriding.</p>
+                <details class="solution">
+                    <summary>View Solution</summary>
+                    <div class="code-block">
+                        <pre><code><span class="comment">// Superclass Shape</span>
+<span class="keyword">class</span> Shape {
+    <span class="keyword">public void</span> displayArea() {
+        System.out.println(<span class="string">"Area calculation depends on shape type"</span>);
+    }
+
+    <span class="comment">// Method Overloading - same name, different parameters</span>
+    <span class="keyword">public void</span> displayArea(String shapeName) {
+        System.out.println(<span class="string">"Calculating area for: "</span> + shapeName);
+    }
+}
+
+<span class="comment">// Subclass Rectangle - Method Overriding</span>
+<span class="keyword">class</span> Rectangle <span class="keyword">extends</span> Shape {
+    <span class="keyword">private double</span> length;
+    <span class="keyword">private double</span> width;
+
+    <span class="keyword">public</span> Rectangle(<span class="keyword">double</span> length, <span class="keyword">double</span> width) {
+        <span class="keyword">this</span>.length = length;
+        <span class="keyword">this</span>.width = width;
+    }
+
+    <span class="annotation">@Override</span>
+    <span class="keyword">public void</span> displayArea() {
+        <span class="keyword">double</span> area = length * width;
+        System.out.println(<span class="string">"Rectangle Area: "</span> + area);
+    }
+}
+
+<span class="comment">// Subclass Circle - Another example of overriding</span>
+<span class="keyword">class</span> Circle <span class="keyword">extends</span> Shape {
+    <span class="keyword">private double</span> radius;
+
+    <span class="keyword">public</span> Circle(<span class="keyword">double</span> radius) {
+        <span class="keyword">this</span>.radius = radius;
+    }
+
+    <span class="annotation">@Override</span>
+    <span class="keyword">public void</span> displayArea() {
+        <span class="keyword">double</span> area = Math.PI * radius * radius;
+        System.out.println(<span class="string">"Circle Area: "</span> + String.format(<span class="string">"%.2f"</span>, area));
+    }
+}
+
+<span class="keyword">public class</span> ShapeDemo {
+    <span class="keyword">public static void</span> main(String[] args) {
+        Shape shape = <span class="keyword">new</span> Shape();
+        Rectangle rect = <span class="keyword">new</span> Rectangle(<span class="number">5.0</span>, <span class="number">3.0</span>);
+        Circle circle = <span class="keyword">new</span> Circle(<span class="number">4.0</span>);
+
+        <span class="comment">// Method Overriding demonstration</span>
+        System.out.println(<span class="string">"--- Method Overriding ---"</span>);
+        shape.displayArea();      <span class="comment">// Parent method</span>
+        rect.displayArea();       <span class="comment">// Overridden in Rectangle</span>
+        circle.displayArea();     <span class="comment">// Overridden in Circle</span>
+
+        <span class="comment">// Runtime Polymorphism</span>
+        System.out.println(<span class="string">"\n--- Runtime Polymorphism ---"</span>);
+        Shape s1 = <span class="keyword">new</span> Rectangle(<span class="number">10</span>, <span class="number">5</span>);
+        Shape s2 = <span class="keyword">new</span> Circle(<span class="number">7</span>);
+        s1.displayArea();  <span class="comment">// Calls Rectangle's displayArea()</span>
+        s2.displayArea();  <span class="comment">// Calls Circle's displayArea()</span>
+
+        <span class="comment">// Method Overloading demonstration</span>
+        System.out.println(<span class="string">"\n--- Method Overloading ---"</span>);
+        shape.displayArea();                    <span class="comment">// No parameter</span>
+        shape.displayArea(<span class="string">"Triangle"</span>);         <span class="comment">// With parameter</span>
+    }
+}
+
+<span class="comment">/*
+OUTPUT:
+--- Method Overriding ---
+Area calculation depends on shape type
+Rectangle Area: 15.0
+Circle Area: 50.27
+
+--- Runtime Polymorphism ---
+Rectangle Area: 50.0
+Circle Area: 153.94
+
+--- Method Overloading ---
+Area calculation depends on shape type
+Calculating area for: Triangle
+
+KEY DIFFERENCES:
+| Overloading              | Overriding                    |
+|--------------------------|-------------------------------|
+| Same class               | Parent-child classes          |
+| Different parameters     | Same signature                |
+| Compile-time polymorphism| Runtime polymorphism          |
+| Can change return type   | Must be same/covariant return |
+*/</span></code></pre>
+                    </div>
+                </details>
+            </div>
+
+            <div class="practice-card">
+                <div class="practice-header">
+                    <h3>E2. Constructor Overloading</h3>
+                    <span class="difficulty medium">Medium</span>
+                </div>
+                <p>Create a class with at least three constructors demonstrating constructor overloading. Show how constructors are invoked.</p>
+                <details class="solution">
+                    <summary>View Solution</summary>
+                    <div class="code-block">
+                        <pre><code><span class="keyword">class</span> Student {
+    <span class="keyword">private int</span> rollNo;
+    <span class="keyword">private</span> String name;
+    <span class="keyword">private double</span> marks;
+    <span class="keyword">private</span> String course;
+
+    <span class="comment">// Constructor 1: Default constructor</span>
+    <span class="keyword">public</span> Student() {
+        <span class="keyword">this</span>.rollNo = <span class="number">0</span>;
+        <span class="keyword">this</span>.name = <span class="string">"Unknown"</span>;
+        <span class="keyword">this</span>.marks = <span class="number">0.0</span>;
+        <span class="keyword">this</span>.course = <span class="string">"Not Assigned"</span>;
+        System.out.println(<span class="string">"Default constructor called"</span>);
+    }
+
+    <span class="comment">// Constructor 2: With rollNo and name</span>
+    <span class="keyword">public</span> Student(<span class="keyword">int</span> rollNo, String name) {
+        <span class="keyword">this</span>.rollNo = rollNo;
+        <span class="keyword">this</span>.name = name;
+        <span class="keyword">this</span>.marks = <span class="number">0.0</span>;
+        <span class="keyword">this</span>.course = <span class="string">"Not Assigned"</span>;
+        System.out.println(<span class="string">"Constructor with rollNo and name called"</span>);
+    }
+
+    <span class="comment">// Constructor 3: With rollNo, name, and marks</span>
+    <span class="keyword">public</span> Student(<span class="keyword">int</span> rollNo, String name, <span class="keyword">double</span> marks) {
+        <span class="keyword">this</span>.rollNo = rollNo;
+        <span class="keyword">this</span>.name = name;
+        <span class="keyword">this</span>.marks = marks;
+        <span class="keyword">this</span>.course = <span class="string">"Not Assigned"</span>;
+        System.out.println(<span class="string">"Constructor with rollNo, name, marks called"</span>);
+    }
+
+    <span class="comment">// Constructor 4: With all parameters</span>
+    <span class="keyword">public</span> Student(<span class="keyword">int</span> rollNo, String name, <span class="keyword">double</span> marks, String course) {
+        <span class="keyword">this</span>.rollNo = rollNo;
+        <span class="keyword">this</span>.name = name;
+        <span class="keyword">this</span>.marks = marks;
+        <span class="keyword">this</span>.course = course;
+        System.out.println(<span class="string">"Parameterized constructor with all fields called"</span>);
+    }
+
+    <span class="comment">// Constructor 5: Copy constructor</span>
+    <span class="keyword">public</span> Student(Student other) {
+        <span class="keyword">this</span>.rollNo = other.rollNo;
+        <span class="keyword">this</span>.name = other.name;
+        <span class="keyword">this</span>.marks = other.marks;
+        <span class="keyword">this</span>.course = other.course;
+        System.out.println(<span class="string">"Copy constructor called"</span>);
+    }
+
+    <span class="keyword">public void</span> display() {
+        System.out.println(<span class="string">"Roll: "</span> + rollNo + <span class="string">", Name: "</span> + name +
+                          <span class="string">", Marks: "</span> + marks + <span class="string">", Course: "</span> + course);
+    }
+}
+
+<span class="keyword">public class</span> ConstructorOverloadingDemo {
+    <span class="keyword">public static void</span> main(String[] args) {
+        <span class="comment">// Invoking different constructors</span>
+        System.out.println(<span class="string">"=== Constructor Invocation Examples ===\n"</span>);
+
+        <span class="comment">// 1. Using default constructor</span>
+        Student s1 = <span class="keyword">new</span> Student();
+        s1.display();
+
+        System.out.println();
+
+        <span class="comment">// 2. Using constructor with 2 parameters</span>
+        Student s2 = <span class="keyword">new</span> Student(<span class="number">101</span>, <span class="string">"Alice"</span>);
+        s2.display();
+
+        System.out.println();
+
+        <span class="comment">// 3. Using constructor with 3 parameters</span>
+        Student s3 = <span class="keyword">new</span> Student(<span class="number">102</span>, <span class="string">"Bob"</span>, <span class="number">85.5</span>);
+        s3.display();
+
+        System.out.println();
+
+        <span class="comment">// 4. Using constructor with all parameters</span>
+        Student s4 = <span class="keyword">new</span> Student(<span class="number">103</span>, <span class="string">"Charlie"</span>, <span class="number">92.0</span>, <span class="string">"Computer Science"</span>);
+        s4.display();
+
+        System.out.println();
+
+        <span class="comment">// 5. Using copy constructor</span>
+        Student s5 = <span class="keyword">new</span> Student(s4);
+        s5.display();
+    }
+}
+
+<span class="comment">/*
+OUTPUT:
+=== Constructor Invocation Examples ===
+
+Default constructor called
+Roll: 0, Name: Unknown, Marks: 0.0, Course: Not Assigned
+
+Constructor with rollNo and name called
+Roll: 101, Name: Alice, Marks: 0.0, Course: Not Assigned
+
+Constructor with rollNo, name, marks called
+Roll: 102, Name: Bob, Marks: 85.5, Course: Not Assigned
+
+Parameterized constructor with all fields called
+Roll: 103, Name: Charlie, Marks: 92.0, Course: Computer Science
+
+Copy constructor called
+Roll: 103, Name: Charlie, Marks: 92.0, Course: Computer Science
+*/</span></code></pre>
+                    </div>
+                </details>
+            </div>
+
+            <div class="practice-card">
+                <div class="practice-header">
+                    <h3>E3. Multiple Exception Handling with try-catch-finally</h3>
+                    <span class="difficulty medium">Medium</span>
+                </div>
+                <p>Write a Java program to handle multiple exceptions using try-catch-finally. Include throw and throws keywords.</p>
+                <details class="solution">
+                    <summary>View Solution</summary>
+                    <div class="code-block">
+                        <pre><code><span class="keyword">import</span> java.util.Scanner;
+
+<span class="keyword">public class</span> MultipleExceptionDemo {
+
+    <span class="comment">// Method using 'throws' keyword</span>
+    <span class="keyword">public static int</span> divide(<span class="keyword">int</span> a, <span class="keyword">int</span> b) <span class="keyword">throws</span> ArithmeticException {
+        <span class="keyword">if</span> (b == <span class="number">0</span>) {
+            <span class="comment">// Using 'throw' keyword to explicitly throw exception</span>
+            <span class="keyword">throw new</span> ArithmeticException(<span class="string">"Cannot divide by zero!"</span>);
+        }
+        <span class="keyword">return</span> a / b;
+    }
+
+    <span class="keyword">public static void</span> main(String[] args) {
+        Scanner scanner = <span class="keyword">null</span>;
+
+        <span class="keyword">try</span> {
+            scanner = <span class="keyword">new</span> Scanner(System.in);
+
+            <span class="comment">// Example 1: ArrayIndexOutOfBoundsException</span>
+            <span class="keyword">int</span>[] numbers = {<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>};
+            System.out.println(<span class="string">"Array element at index 1: "</span> + numbers[<span class="number">1</span>]);
+
+            <span class="comment">// Example 2: ArithmeticException</span>
+            <span class="keyword">int</span> result = divide(<span class="number">10</span>, <span class="number">2</span>);
+            System.out.println(<span class="string">"Division result: "</span> + result);
+
+            <span class="comment">// Example 3: NumberFormatException</span>
+            String numStr = <span class="string">"123"</span>;
+            <span class="keyword">int</span> num = Integer.parseInt(numStr);
+            System.out.println(<span class="string">"Parsed number: "</span> + num);
+
+            <span class="comment">// Example 4: NullPointerException</span>
+            String str = <span class="string">"Hello"</span>;
+            System.out.println(<span class="string">"String length: "</span> + str.length());
+
+            <span class="comment">// Uncomment any line below to trigger exception:</span>
+            <span class="comment">// System.out.println(numbers[5]);  // ArrayIndexOutOfBoundsException</span>
+            <span class="comment">// divide(10, 0);                   // ArithmeticException</span>
+            <span class="comment">// Integer.parseInt("abc");         // NumberFormatException</span>
+            <span class="comment">// String s = null; s.length();     // NullPointerException</span>
+
+        } <span class="keyword">catch</span> (ArrayIndexOutOfBoundsException e) {
+            System.out.println(<span class="string">"Error: Array index out of bounds!"</span>);
+            System.out.println(<span class="string">"Details: "</span> + e.getMessage());
+
+        } <span class="keyword">catch</span> (ArithmeticException e) {
+            System.out.println(<span class="string">"Error: Arithmetic exception occurred!"</span>);
+            System.out.println(<span class="string">"Details: "</span> + e.getMessage());
+
+        } <span class="keyword">catch</span> (NumberFormatException e) {
+            System.out.println(<span class="string">"Error: Invalid number format!"</span>);
+            System.out.println(<span class="string">"Details: "</span> + e.getMessage());
+
+        } <span class="keyword">catch</span> (NullPointerException e) {
+            System.out.println(<span class="string">"Error: Null pointer exception!"</span>);
+            System.out.println(<span class="string">"Details: "</span> + e.getMessage());
+
+        } <span class="keyword">catch</span> (Exception e) {
+            <span class="comment">// Generic catch block for any other exceptions</span>
+            System.out.println(<span class="string">"Error: An unexpected exception occurred!"</span>);
+            System.out.println(<span class="string">"Details: "</span> + e.getMessage());
+
+        } <span class="keyword">finally</span> {
+            <span class="comment">// Finally block always executes</span>
+            System.out.println(<span class="string">"\n--- Finally Block ---"</span>);
+            System.out.println(<span class="string">"Cleanup operations performed."</span>);
+            <span class="keyword">if</span> (scanner != <span class="keyword">null</span>) {
+                scanner.close();
+                System.out.println(<span class="string">"Scanner closed."</span>);
+            }
+        }
+
+        System.out.println(<span class="string">"\nProgram continues after exception handling..."</span>);
+    }
+}
+
+<span class="comment">/*
+KEY CONCEPTS:
+1. try: Contains code that might throw exceptions
+2. catch: Handles specific exception types
+3. finally: Always executes (cleanup code)
+4. throw: Explicitly throws an exception
+5. throws: Declares exceptions a method might throw
+
+OUTPUT (normal execution):
+Array element at index 1: 20
+Division result: 5
+Parsed number: 123
+String length: 5
+
+--- Finally Block ---
+Cleanup operations performed.
+Scanner closed.
+
+Program continues after exception handling...
+*/</span></code></pre>
+                    </div>
+                </details>
+            </div>
+
+            <div class="practice-card">
+                <div class="practice-header">
+                    <h3>E4. Multiple Inheritance using Interfaces</h3>
+                    <span class="difficulty medium">Medium</span>
+                </div>
+                <p>Demonstrate why multiple inheritance is not supported in Java with classes and show how interfaces achieve multiple inheritance.</p>
+                <details class="solution">
+                    <summary>View Solution</summary>
+                    <div class="code-block">
+                        <pre><code><span class="comment">/*
+ WHY MULTIPLE INHERITANCE IS NOT SUPPORTED WITH CLASSES:
+
+ If Java allowed:
+ class A { void show() { print("A"); } }
+ class B { void show() { print("B"); } }
+ class C extends A, B { }  // NOT ALLOWED
+
+ Problem: Which show() would C inherit? This is the "Diamond Problem"
+*/</span>
+
+<span class="comment">// Interface 1</span>
+<span class="keyword">interface</span> Printable {
+    <span class="keyword">void</span> print();
+
+    <span class="comment">// Default method (Java 8+)</span>
+    <span class="keyword">default void</span> defaultPrint() {
+        System.out.println(<span class="string">"Default print from Printable"</span>);
+    }
+}
+
+<span class="comment">// Interface 2</span>
+<span class="keyword">interface</span> Showable {
+    <span class="keyword">void</span> show();
+
+    <span class="keyword">default void</span> defaultShow() {
+        System.out.println(<span class="string">"Default show from Showable"</span>);
+    }
+}
+
+<span class="comment">// Interface 3 - extends another interface</span>
+<span class="keyword">interface</span> Displayable <span class="keyword">extends</span> Printable {
+    <span class="keyword">void</span> display();
+}
+
+<span class="comment">// Class implementing multiple interfaces - MULTIPLE INHERITANCE</span>
+<span class="keyword">class</span> Document <span class="keyword">implements</span> Printable, Showable {
+    <span class="keyword">private</span> String content;
+
+    <span class="keyword">public</span> Document(String content) {
+        <span class="keyword">this</span>.content = content;
+    }
+
+    <span class="annotation">@Override</span>
+    <span class="keyword">public void</span> print() {
+        System.out.println(<span class="string">"Printing: "</span> + content);
+    }
+
+    <span class="annotation">@Override</span>
+    <span class="keyword">public void</span> show() {
+        System.out.println(<span class="string">"Showing: "</span> + content);
+    }
+}
+
+<span class="comment">// Another class implementing Displayable (which extends Printable)</span>
+<span class="keyword">class</span> Report <span class="keyword">implements</span> Displayable, Showable {
+    <span class="keyword">private</span> String title;
+
+    <span class="keyword">public</span> Report(String title) {
+        <span class="keyword">this</span>.title = title;
+    }
+
+    <span class="annotation">@Override</span>
+    <span class="keyword">public void</span> print() {
+        System.out.println(<span class="string">"Printing Report: "</span> + title);
+    }
+
+    <span class="annotation">@Override</span>
+    <span class="keyword">public void</span> show() {
+        System.out.println(<span class="string">"Showing Report: "</span> + title);
+    }
+
+    <span class="annotation">@Override</span>
+    <span class="keyword">public void</span> display() {
+        System.out.println(<span class="string">"Displaying Report: "</span> + title);
+    }
+}
+
+<span class="keyword">public class</span> MultipleInheritanceDemo {
+    <span class="keyword">public static void</span> main(String[] args) {
+        System.out.println(<span class="string">"=== Multiple Inheritance via Interfaces ===\n"</span>);
+
+        <span class="comment">// Document implements both Printable and Showable</span>
+        Document doc = <span class="keyword">new</span> Document(<span class="string">"Hello World"</span>);
+        doc.print();
+        doc.show();
+        doc.defaultPrint();
+        doc.defaultShow();
+
+        System.out.println();
+
+        <span class="comment">// Report implements Displayable (extends Printable) and Showable</span>
+        Report report = <span class="keyword">new</span> Report(<span class="string">"Annual Report 2024"</span>);
+        report.print();
+        report.show();
+        report.display();
+
+        System.out.println(<span class="string">"\n=== Polymorphism with Interfaces ===\n"</span>);
+
+        <span class="comment">// Interface reference can hold implementing class object</span>
+        Printable p = <span class="keyword">new</span> Document(<span class="string">"Polymorphic Doc"</span>);
+        p.print();
+
+        Showable s = <span class="keyword">new</span> Report(<span class="string">"Polymorphic Report"</span>);
+        s.show();
+    }
+}
+
+<span class="comment">/*
+OUTPUT:
+=== Multiple Inheritance via Interfaces ===
+
+Printing: Hello World
+Showing: Hello World
+Default print from Printable
+Default show from Showable
+
+Printing Report: Annual Report 2024
+Showing Report: Annual Report 2024
+Displaying Report: Annual Report 2024
+
+=== Polymorphism with Interfaces ===
+
+Polymorphic Doc
+Polymorphic Report
+
+KEY POINTS:
+1. Java doesn't support multiple inheritance with classes (Diamond Problem)
+2. A class can implement multiple interfaces
+3. Interfaces provide method signatures (contract)
+4. Default methods allow code in interfaces (Java 8+)
+5. Interface can extend multiple interfaces
+*/</span></code></pre>
+                    </div>
+                </details>
+            </div>
+
+            <div class="practice-card">
+                <div class="practice-header">
+                    <h3>E5. Thread Creation - Thread Class and Runnable Interface</h3>
+                    <span class="difficulty medium">Medium</span>
+                </div>
+                <p>Create threads using both extending Thread class and implementing Runnable interface. Demonstrate the thread lifecycle.</p>
+                <details class="solution">
+                    <summary>View Solution</summary>
+                    <div class="code-block">
+                        <pre><code><span class="comment">// Method 1: Extending Thread class</span>
+<span class="keyword">class</span> MyThread <span class="keyword">extends</span> Thread {
+    <span class="keyword">private</span> String threadName;
+
+    <span class="keyword">public</span> MyThread(String name) {
+        <span class="keyword">this</span>.threadName = name;
+    }
+
+    <span class="annotation">@Override</span>
+    <span class="keyword">public void</span> run() {
+        System.out.println(threadName + <span class="string">" started (extends Thread)"</span>);
+        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i <= <span class="number">5</span>; i++) {
+            System.out.println(threadName + <span class="string">": Count "</span> + i);
+            <span class="keyword">try</span> {
+                Thread.sleep(<span class="number">500</span>);  <span class="comment">// Sleep for 500ms</span>
+            } <span class="keyword">catch</span> (InterruptedException e) {
+                System.out.println(threadName + <span class="string">" interrupted"</span>);
+            }
+        }
+        System.out.println(threadName + <span class="string">" finished"</span>);
+    }
+}
+
+<span class="comment">// Method 2: Implementing Runnable interface</span>
+<span class="keyword">class</span> MyRunnable <span class="keyword">implements</span> Runnable {
+    <span class="keyword">private</span> String threadName;
+
+    <span class="keyword">public</span> MyRunnable(String name) {
+        <span class="keyword">this</span>.threadName = name;
+    }
+
+    <span class="annotation">@Override</span>
+    <span class="keyword">public void</span> run() {
+        System.out.println(threadName + <span class="string">" started (implements Runnable)"</span>);
+        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i <= <span class="number">5</span>; i++) {
+            System.out.println(threadName + <span class="string">": Count "</span> + i);
+            <span class="keyword">try</span> {
+                Thread.sleep(<span class="number">500</span>);
+            } <span class="keyword">catch</span> (InterruptedException e) {
+                System.out.println(threadName + <span class="string">" interrupted"</span>);
+            }
+        }
+        System.out.println(threadName + <span class="string">" finished"</span>);
+    }
+}
+
+<span class="keyword">public class</span> ThreadCreationDemo {
+    <span class="keyword">public static void</span> main(String[] args) {
+        System.out.println(<span class="string">"=== Thread Creation Demo ===\n"</span>);
+        System.out.println(<span class="string">"Main thread started"</span>);
+
+        <span class="comment">// Method 1: Using Thread class</span>
+        MyThread thread1 = <span class="keyword">new</span> MyThread(<span class="string">"Thread-1"</span>);
+
+        <span class="comment">// Method 2: Using Runnable interface</span>
+        MyRunnable runnable = <span class="keyword">new</span> MyRunnable(<span class="string">"Thread-2"</span>);
+        Thread thread2 = <span class="keyword">new</span> Thread(runnable);
+
+        <span class="comment">// Method 3: Using Lambda (Java 8+) - Anonymous Runnable</span>
+        Thread thread3 = <span class="keyword">new</span> Thread(() -> {
+            System.out.println(<span class="string">"Thread-3 started (Lambda)"</span>);
+            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i <= <span class="number">3</span>; i++) {
+                System.out.println(<span class="string">"Thread-3: Count "</span> + i);
+                <span class="keyword">try</span> {
+                    Thread.sleep(<span class="number">500</span>);
+                } <span class="keyword">catch</span> (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            System.out.println(<span class="string">"Thread-3 finished"</span>);
+        });
+
+        <span class="comment">// Display thread states before starting</span>
+        System.out.println(<span class="string">"\n--- Thread States ---"</span>);
+        System.out.println(<span class="string">"Thread-1 state: "</span> + thread1.getState());  <span class="comment">// NEW</span>
+
+        <span class="comment">// Start all threads</span>
+        System.out.println(<span class="string">"\n--- Starting Threads ---"</span>);
+        thread1.start();  <span class="comment">// Transitions to RUNNABLE</span>
+        thread2.start();
+        thread3.start();
+
+        System.out.println(<span class="string">"Thread-1 state after start: "</span> + thread1.getState());
+
+        <span class="comment">// Wait for threads to complete</span>
+        <span class="keyword">try</span> {
+            thread1.join();  <span class="comment">// Main waits for thread1</span>
+            thread2.join();  <span class="comment">// Main waits for thread2</span>
+            thread3.join();  <span class="comment">// Main waits for thread3</span>
+        } <span class="keyword">catch</span> (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(<span class="string">"\nThread-1 state after completion: "</span> + thread1.getState());  <span class="comment">// TERMINATED</span>
+        System.out.println(<span class="string">"Main thread finished"</span>);
+    }
+}
+
+<span class="comment">/*
+THREAD LIFECYCLE STATES:
+1. NEW        - Thread created but not started
+2. RUNNABLE   - Thread executing or ready to execute
+3. BLOCKED    - Waiting to acquire a lock
+4. WAITING    - Waiting indefinitely for another thread
+5. TIMED_WAITING - Waiting for specified time (sleep, wait with timeout)
+6. TERMINATED - Thread execution completed
+
+DIFFERENCE: Thread vs Runnable
+| Thread Class           | Runnable Interface           |
+|------------------------|------------------------------|
+| Extends Thread         | Implements Runnable          |
+| Cannot extend other    | Can extend other classes     |
+| Each thread has object | Single object, multiple threads |
+| Less flexible          | More flexible (preferred)    |
+*/</span></code></pre>
+                    </div>
+                </details>
+            </div>
+
+            <div class="practice-card">
+                <div class="practice-header">
+                    <h3>E6. User-Defined Exception</h3>
+                    <span class="difficulty medium">Medium</span>
+                </div>
+                <p>Create a user-defined exception and demonstrate proper exception handling with custom exceptions.</p>
+                <details class="solution">
+                    <summary>View Solution</summary>
+                    <div class="code-block">
+                        <pre><code><span class="comment">// User-defined exception class</span>
+<span class="keyword">class</span> InsufficientBalanceException <span class="keyword">extends</span> Exception {
+    <span class="keyword">private double</span> balance;
+    <span class="keyword">private double</span> amount;
+
+    <span class="keyword">public</span> InsufficientBalanceException(String message) {
+        <span class="keyword">super</span>(message);
+    }
+
+    <span class="keyword">public</span> InsufficientBalanceException(<span class="keyword">double</span> balance, <span class="keyword">double</span> amount) {
+        <span class="keyword">super</span>(<span class="string">"Insufficient balance! Available: "</span> + balance +
+              <span class="string">", Requested: "</span> + amount);
+        <span class="keyword">this</span>.balance = balance;
+        <span class="keyword">this</span>.amount = amount;
+    }
+
+    <span class="keyword">public double</span> getBalance() { <span class="keyword">return</span> balance; }
+    <span class="keyword">public double</span> getAmount() { <span class="keyword">return</span> amount; }
+}
+
+<span class="comment">// Another user-defined exception</span>
+<span class="keyword">class</span> InvalidAccountException <span class="keyword">extends</span> Exception {
+    <span class="keyword">public</span> InvalidAccountException(String message) {
+        <span class="keyword">super</span>(message);
+    }
+}
+
+<span class="comment">// Bank Account class using custom exceptions</span>
+<span class="keyword">class</span> BankAccount {
+    <span class="keyword">private</span> String accountNumber;
+    <span class="keyword">private double</span> balance;
+
+    <span class="keyword">public</span> BankAccount(String accountNumber, <span class="keyword">double</span> initialBalance)
+            <span class="keyword">throws</span> InvalidAccountException {
+        <span class="keyword">if</span> (accountNumber == <span class="keyword">null</span> || accountNumber.length() < <span class="number">5</span>) {
+            <span class="keyword">throw new</span> InvalidAccountException(
+                <span class="string">"Account number must be at least 5 characters"</span>);
+        }
+        <span class="keyword">this</span>.accountNumber = accountNumber;
+        <span class="keyword">this</span>.balance = initialBalance;
+    }
+
+    <span class="keyword">public void</span> withdraw(<span class="keyword">double</span> amount) <span class="keyword">throws</span> InsufficientBalanceException {
+        <span class="keyword">if</span> (amount > balance) {
+            <span class="keyword">throw new</span> InsufficientBalanceException(balance, amount);
+        }
+        balance -= amount;
+        System.out.println(<span class="string">"Withdrawn: "</span> + amount + <span class="string">", New Balance: "</span> + balance);
+    }
+
+    <span class="keyword">public void</span> deposit(<span class="keyword">double</span> amount) {
+        balance += amount;
+        System.out.println(<span class="string">"Deposited: "</span> + amount + <span class="string">", New Balance: "</span> + balance);
+    }
+
+    <span class="keyword">public double</span> getBalance() { <span class="keyword">return</span> balance; }
+}
+
+<span class="keyword">public class</span> UserDefinedExceptionDemo {
+    <span class="keyword">public static void</span> main(String[] args) {
+        System.out.println(<span class="string">"=== User-Defined Exception Demo ===\n"</span>);
+
+        <span class="comment">// Test 1: Invalid Account Exception</span>
+        System.out.println(<span class="string">"Test 1: Creating account with invalid number"</span>);
+        <span class="keyword">try</span> {
+            BankAccount invalidAcc = <span class="keyword">new</span> BankAccount(<span class="string">"123"</span>, <span class="number">1000</span>);
+        } <span class="keyword">catch</span> (InvalidAccountException e) {
+            System.out.println(<span class="string">"Exception caught: "</span> + e.getMessage());
+        }
+
+        System.out.println();
+
+        <span class="comment">// Test 2: Valid account operations</span>
+        System.out.println(<span class="string">"Test 2: Valid account operations"</span>);
+        <span class="keyword">try</span> {
+            BankAccount account = <span class="keyword">new</span> BankAccount(<span class="string">"ACC001"</span>, <span class="number">5000</span>);
+            System.out.println(<span class="string">"Account created. Balance: "</span> + account.getBalance());
+
+            account.deposit(<span class="number">2000</span>);
+            account.withdraw(<span class="number">3000</span>);
+
+            <span class="comment">// This will throw InsufficientBalanceException</span>
+            System.out.println(<span class="string">"\nAttempting to withdraw 10000..."</span>);
+            account.withdraw(<span class="number">10000</span>);
+
+        } <span class="keyword">catch</span> (InvalidAccountException e) {
+            System.out.println(<span class="string">"Account Error: "</span> + e.getMessage());
+        } <span class="keyword">catch</span> (InsufficientBalanceException e) {
+            System.out.println(<span class="string">"Transaction Error: "</span> + e.getMessage());
+            System.out.println(<span class="string">"Available Balance: "</span> + e.getBalance());
+            System.out.println(<span class="string">"Requested Amount: "</span> + e.getAmount());
+        } <span class="keyword">finally</span> {
+            System.out.println(<span class="string">"\nTransaction processing completed."</span>);
+        }
+    }
+}
+
+<span class="comment">/*
+OUTPUT:
+=== User-Defined Exception Demo ===
+
+Test 1: Creating account with invalid number
+Exception caught: Account number must be at least 5 characters
+
+Test 2: Valid account operations
+Account created. Balance: 5000.0
+Deposited: 2000.0, New Balance: 7000.0
+Withdrawn: 3000.0, New Balance: 4000.0
+
+Attempting to withdraw 10000...
+Transaction Error: Insufficient balance! Available: 4000.0, Requested: 10000.0
+Available Balance: 4000.0
+Requested Amount: 10000.0
+
+Transaction processing completed.
+
+KEY POINTS:
+1. Extend Exception for checked exceptions
+2. Extend RuntimeException for unchecked exceptions
+3. Call super(message) in constructor
+4. Can add custom fields and methods
+*/</span></code></pre>
+                    </div>
+                </details>
+            </div>
+
+            <div class="practice-card">
+                <div class="practice-header">
+                    <h3>E7. Functional Interface with Lambda Expression</h3>
+                    <span class="difficulty medium">Medium</span>
+                </div>
+                <p>Define a functional interface and implement it using lambda expressions. Show built-in functional interfaces.</p>
+                <details class="solution">
+                    <summary>View Solution</summary>
+                    <div class="code-block">
+                        <pre><code><span class="keyword">import</span> java.util.*;
+<span class="keyword">import</span> java.util.function.*;
+
+<span class="comment">// Custom Functional Interface</span>
+<span class="annotation">@FunctionalInterface</span>
+<span class="keyword">interface</span> Calculator {
+    <span class="keyword">int</span> calculate(<span class="keyword">int</span> a, <span class="keyword">int</span> b);
+
+    <span class="comment">// Can have default methods</span>
+    <span class="keyword">default void</span> printResult(<span class="keyword">int</span> a, <span class="keyword">int</span> b) {
+        System.out.println(<span class="string">"Result: "</span> + calculate(a, b));
+    }
+}
+
+<span class="comment">// Another Functional Interface</span>
+<span class="annotation">@FunctionalInterface</span>
+<span class="keyword">interface</span> Greeting {
+    String greet(String name);
+}
+
+<span class="keyword">public class</span> FunctionalInterfaceDemo {
+    <span class="keyword">public static void</span> main(String[] args) {
+        System.out.println(<span class="string">"=== Custom Functional Interface ===\n"</span>);
+
+        <span class="comment">// Lambda implementations of Calculator</span>
+        Calculator add = (a, b) -> a + b;
+        Calculator subtract = (a, b) -> a - b;
+        Calculator multiply = (a, b) -> a * b;
+        Calculator divide = (a, b) -> b != <span class="number">0</span> ? a / b : <span class="number">0</span>;
+
+        System.out.println(<span class="string">"10 + 5 = "</span> + add.calculate(<span class="number">10</span>, <span class="number">5</span>));
+        System.out.println(<span class="string">"10 - 5 = "</span> + subtract.calculate(<span class="number">10</span>, <span class="number">5</span>));
+        System.out.println(<span class="string">"10 * 5 = "</span> + multiply.calculate(<span class="number">10</span>, <span class="number">5</span>));
+        System.out.println(<span class="string">"10 / 5 = "</span> + divide.calculate(<span class="number">10</span>, <span class="number">5</span>));
+
+        <span class="comment">// Using default method</span>
+        System.out.print(<span class="string">"Using default method: "</span>);
+        add.printResult(<span class="number">20</span>, <span class="number">30</span>);
+
+        <span class="comment">// Greeting functional interface</span>
+        Greeting formalGreeting = name -> <span class="string">"Good morning, "</span> + name + <span class="string">"!"</span>;
+        Greeting casualGreeting = name -> <span class="string">"Hey "</span> + name + <span class="string">"!"</span>;
+
+        System.out.println(<span class="string">"\n"</span> + formalGreeting.greet(<span class="string">"Mr. Smith"</span>));
+        System.out.println(casualGreeting.greet(<span class="string">"John"</span>));
+
+        <span class="comment">// Built-in Functional Interfaces</span>
+        System.out.println(<span class="string">"\n=== Built-in Functional Interfaces ===\n"</span>);
+
+        <span class="comment">// 1. Predicate<T> - takes T, returns boolean</span>
+        Predicate&lt;Integer&gt; isEven = n -> n % <span class="number">2</span> == <span class="number">0</span>;
+        System.out.println(<span class="string">"Is 4 even? "</span> + isEven.test(<span class="number">4</span>));
+        System.out.println(<span class="string">"Is 7 even? "</span> + isEven.test(<span class="number">7</span>));
+
+        <span class="comment">// 2. Function<T,R> - takes T, returns R</span>
+        Function&lt;String, Integer&gt; strLength = s -> s.length();
+        System.out.println(<span class="string">"Length of 'Hello': "</span> + strLength.apply(<span class="string">"Hello"</span>));
+
+        <span class="comment">// 3. Consumer<T> - takes T, returns nothing</span>
+        Consumer&lt;String&gt; printer = s -> System.out.println(<span class="string">"Printing: "</span> + s);
+        printer.accept(<span class="string">"Consumer demo"</span>);
+
+        <span class="comment">// 4. Supplier<T> - takes nothing, returns T</span>
+        Supplier&lt;Double&gt; randomSupplier = () -> Math.random();
+        System.out.println(<span class="string">"Random number: "</span> + randomSupplier.get());
+
+        <span class="comment">// 5. BiFunction<T,U,R> - takes T and U, returns R</span>
+        BiFunction&lt;Integer, Integer, Integer&gt; max = (a, b) -> a > b ? a : b;
+        System.out.println(<span class="string">"Max of 10, 20: "</span> + max.apply(<span class="number">10</span>, <span class="number">20</span>));
+
+        <span class="comment">// Using with Collections</span>
+        System.out.println(<span class="string">"\n=== Lambda with Collections ===\n"</span>);
+        List&lt;String&gt; names = Arrays.asList(<span class="string">"Alice"</span>, <span class="string">"Bob"</span>, <span class="string">"Charlie"</span>, <span class="string">"David"</span>);
+
+        <span class="comment">// forEach with Consumer</span>
+        System.out.print(<span class="string">"Names: "</span>);
+        names.forEach(name -> System.out.print(name + <span class="string">" "</span>));
+
+        <span class="comment">// filter with Predicate</span>
+        System.out.println(<span class="string">"\nNames starting with 'A' or 'C':"</span>);
+        names.stream()
+             .filter(n -> n.startsWith(<span class="string">"A"</span>) || n.startsWith(<span class="string">"C"</span>))
+             .forEach(System.out::println);
+    }
+}
+
+<span class="comment">/*
+OUTPUT:
+=== Custom Functional Interface ===
+
+10 + 5 = 15
+10 - 5 = 5
+10 * 5 = 50
+10 / 5 = 2
+Using default method: Result: 50
+
+Good morning, Mr. Smith!
+Hey John!
+
+=== Built-in Functional Interfaces ===
+
+Is 4 even? true
+Is 7 even? false
+Length of 'Hello': 5
+Printing: Consumer demo
+Random number: 0.xyz...
+Max of 10, 20: 20
+
+=== Lambda with Collections ===
+
+Names: Alice Bob Charlie David
+Names starting with 'A' or 'C':
+Alice
+Charlie
+*/</span></code></pre>
+                    </div>
+                </details>
+            </div>
+
+            <div class="practice-card">
+                <div class="practice-header">
+                    <h3>E8. Abstraction vs Encapsulation</h3>
+                    <span class="difficulty medium">Medium</span>
+                </div>
+                <p>Demonstrate the difference between abstraction and encapsulation with practical examples.</p>
+                <details class="solution">
+                    <summary>View Solution</summary>
+                    <div class="code-block">
+                        <pre><code><span class="comment">/*
+ ABSTRACTION: Hiding implementation details, showing only functionality
+ ENCAPSULATION: Binding data and methods together, protecting data
+*/</span>
+
+<span class="comment">// ABSTRACTION using Abstract Class</span>
+<span class="keyword">abstract class</span> Vehicle {
+    <span class="comment">// Abstract method - no implementation (ABSTRACTION)</span>
+    <span class="keyword">public abstract void</span> start();
+    <span class="keyword">public abstract void</span> stop();
+
+    <span class="comment">// Concrete method</span>
+    <span class="keyword">public void</span> honk() {
+        System.out.println(<span class="string">"Vehicle is honking!"</span>);
+    }
+}
+
+<span class="comment">// ENCAPSULATION - Data hiding with private fields</span>
+<span class="keyword">class</span> Car <span class="keyword">extends</span> Vehicle {
+    <span class="comment">// Private fields (ENCAPSULATION)</span>
+    <span class="keyword">private</span> String model;
+    <span class="keyword">private int</span> speed;
+    <span class="keyword">private boolean</span> engineRunning;
+
+    <span class="keyword">public</span> Car(String model) {
+        <span class="keyword">this</span>.model = model;
+        <span class="keyword">this</span>.speed = <span class="number">0</span>;
+        <span class="keyword">this</span>.engineRunning = <span class="keyword">false</span>;
+    }
+
+    <span class="comment">// Implementing abstract methods (ABSTRACTION)</span>
+    <span class="annotation">@Override</span>
+    <span class="keyword">public void</span> start() {
+        engineRunning = <span class="keyword">true</span>;
+        System.out.println(model + <span class="string">" engine started"</span>);
+    }
+
+    <span class="annotation">@Override</span>
+    <span class="keyword">public void</span> stop() {
+        engineRunning = <span class="keyword">false</span>;
+        speed = <span class="number">0</span>;
+        System.out.println(model + <span class="string">" engine stopped"</span>);
+    }
+
+    <span class="comment">// Getters and Setters (ENCAPSULATION)</span>
+    <span class="keyword">public</span> String getModel() { <span class="keyword">return</span> model; }
+
+    <span class="keyword">public int</span> getSpeed() { <span class="keyword">return</span> speed; }
+
+    <span class="comment">// Controlled access with validation (ENCAPSULATION)</span>
+    <span class="keyword">public void</span> setSpeed(<span class="keyword">int</span> speed) {
+        <span class="keyword">if</span> (!engineRunning) {
+            System.out.println(<span class="string">"Cannot set speed. Engine is off!"</span>);
+            <span class="keyword">return</span>;
+        }
+        <span class="keyword">if</span> (speed >= <span class="number">0</span> && speed <= <span class="number">200</span>) {
+            <span class="keyword">this</span>.speed = speed;
+            System.out.println(<span class="string">"Speed set to "</span> + speed + <span class="string">" km/h"</span>);
+        } <span class="keyword">else</span> {
+            System.out.println(<span class="string">"Invalid speed! Must be 0-200"</span>);
+        }
+    }
+
+    <span class="keyword">public boolean</span> isEngineRunning() { <span class="keyword">return</span> engineRunning; }
+}
+
+<span class="comment">// ABSTRACTION using Interface</span>
+<span class="keyword">interface</span> PaymentProcessor {
+    <span class="keyword">void</span> processPayment(<span class="keyword">double</span> amount);
+    <span class="keyword">boolean</span> validatePayment();
+}
+
+<span class="comment">// Implementation hides the complexity (ABSTRACTION)</span>
+<span class="keyword">class</span> CreditCardPayment <span class="keyword">implements</span> PaymentProcessor {
+    <span class="comment">// Encapsulated data</span>
+    <span class="keyword">private</span> String cardNumber;
+    <span class="keyword">private</span> String cvv;
+
+    <span class="keyword">public</span> CreditCardPayment(String cardNumber, String cvv) {
+        <span class="keyword">this</span>.cardNumber = cardNumber;
+        <span class="keyword">this</span>.cvv = cvv;
+    }
+
+    <span class="annotation">@Override</span>
+    <span class="keyword">public void</span> processPayment(<span class="keyword">double</span> amount) {
+        <span class="keyword">if</span> (validatePayment()) {
+            <span class="comment">// Complex logic hidden from user (ABSTRACTION)</span>
+            System.out.println(<span class="string">"Processing credit card payment of $"</span> + amount);
+            System.out.println(<span class="string">"Connecting to bank..."</span>);
+            System.out.println(<span class="string">"Payment successful!"</span>);
+        }
+    }
+
+    <span class="annotation">@Override</span>
+    <span class="keyword">public boolean</span> validatePayment() {
+        <span class="comment">// Validation logic hidden (ABSTRACTION)</span>
+        <span class="keyword">return</span> cardNumber != <span class="keyword">null</span> && cardNumber.length() == <span class="number">16</span>;
+    }
+
+    <span class="comment">// Encapsulated - no direct access to card details</span>
+    <span class="keyword">public</span> String getMaskedCardNumber() {
+        <span class="keyword">return</span> <span class="string">"****-****-****-"</span> + cardNumber.substring(<span class="number">12</span>);
+    }
+}
+
+<span class="keyword">public class</span> AbstractionEncapsulationDemo {
+    <span class="keyword">public static void</span> main(String[] args) {
+        System.out.println(<span class="string">"=== Abstraction vs Encapsulation Demo ===\n"</span>);
+
+        <span class="comment">// Abstraction: User doesn't know HOW car starts</span>
+        System.out.println(<span class="string">"--- Abstraction Example ---"</span>);
+        Vehicle myCar = <span class="keyword">new</span> Car(<span class="string">"Tesla Model 3"</span>);
+        myCar.start();  <span class="comment">// Abstract method implemented</span>
+        myCar.honk();
+        myCar.stop();
+
+        System.out.println(<span class="string">"\n--- Encapsulation Example ---"</span>);
+        <span class="comment">// Encapsulation: Cannot directly access/modify private fields</span>
+        Car car = <span class="keyword">new</span> Car(<span class="string">"BMW X5"</span>);
+
+        <span class="comment">// Cannot do: car.speed = 500; (field is private)</span>
+        <span class="comment">// Must use setter with validation</span>
+        car.setSpeed(<span class="number">100</span>);   <span class="comment">// Fails - engine not running</span>
+        car.start();
+        car.setSpeed(<span class="number">100</span>);   <span class="comment">// Works</span>
+        car.setSpeed(<span class="number">300</span>);   <span class="comment">// Fails validation</span>
+        System.out.println(<span class="string">"Current speed: "</span> + car.getSpeed());
+
+        System.out.println(<span class="string">"\n--- Payment Processing Example ---"</span>);
+        PaymentProcessor payment = <span class="keyword">new</span> CreditCardPayment(<span class="string">"1234567890123456"</span>, <span class="string">"123"</span>);
+        payment.processPayment(<span class="number">99.99</span>);  <span class="comment">// User doesn't know internal logic</span>
+
+        CreditCardPayment cc = (CreditCardPayment) payment;
+        System.out.println(<span class="string">"Card: "</span> + cc.getMaskedCardNumber());  <span class="comment">// Protected access</span>
+    }
+}
+
+<span class="comment">/*
+KEY DIFFERENCES:
+
+| Abstraction                      | Encapsulation                    |
+|----------------------------------|----------------------------------|
+| WHAT an object does              | HOW an object does it            |
+| Achieved via abstract class/     | Achieved via private fields      |
+| interface                        | and public methods               |
+| Hides complexity                 | Hides data                       |
+| Design level concept             | Implementation level concept     |
+| Example: Interface methods       | Example: Getters/Setters         |
+
+Both work together:
+- Abstraction defines the contract
+- Encapsulation protects the implementation
+*/</span></code></pre>
+                    </div>
+                </details>
+            </div>
+
+            <div class="practice-card">
+                <div class="practice-header">
+                    <h3>E9. Static Members Demonstration</h3>
+                    <span class="difficulty easy">Easy</span>
+                </div>
+                <p>Explain and demonstrate the use of static variables, static methods, and static blocks in Java.</p>
+                <details class="solution">
+                    <summary>View Solution</summary>
+                    <div class="code-block">
+                        <pre><code><span class="keyword">class</span> Counter {
+    <span class="comment">// Static variable - shared across all instances</span>
+    <span class="keyword">private static int</span> count = <span class="number">0</span>;
+
+    <span class="comment">// Instance variable - unique to each object</span>
+    <span class="keyword">private int</span> id;
+    <span class="keyword">private</span> String name;
+
+    <span class="comment">// Static block - executes once when class is loaded</span>
+    <span class="keyword">static</span> {
+        System.out.println(<span class="string">"Static block executed - Class loaded!"</span>);
+        System.out.println(<span class="string">"Initial count: "</span> + count);
+    }
+
+    <span class="comment">// Constructor</span>
+    <span class="keyword">public</span> Counter(String name) {
+        <span class="keyword">this</span>.name = name;
+        count++;  <span class="comment">// Increment shared counter</span>
+        <span class="keyword">this</span>.id = count;
+        System.out.println(<span class="string">"Object created: "</span> + name + <span class="string">" (ID: "</span> + id + <span class="string">")"</span>);
+    }
+
+    <span class="comment">// Static method - belongs to class, not instances</span>
+    <span class="keyword">public static int</span> getCount() {
+        <span class="comment">// Cannot access instance variables directly</span>
+        <span class="comment">// Cannot use 'this' keyword</span>
+        <span class="keyword">return</span> count;
+    }
+
+    <span class="comment">// Static method</span>
+    <span class="keyword">public static void</span> resetCount() {
+        count = <span class="number">0</span>;
+        System.out.println(<span class="string">"Count reset to 0"</span>);
+    }
+
+    <span class="comment">// Instance method - can access both static and instance members</span>
+    <span class="keyword">public void</span> display() {
+        System.out.println(<span class="string">"ID: "</span> + id + <span class="string">", Name: "</span> + name +
+                          <span class="string">", Total Count: "</span> + count);
+    }
+
+    <span class="keyword">public int</span> getId() { <span class="keyword">return</span> id; }
+}
+
+<span class="comment">// Utility class with only static members</span>
+<span class="keyword">class</span> MathUtils {
+    <span class="comment">// Static constant</span>
+    <span class="keyword">public static final double</span> PI = <span class="number">3.14159</span>;
+
+    <span class="comment">// Private constructor - prevents instantiation</span>
+    <span class="keyword">private</span> MathUtils() {}
+
+    <span class="comment">// Static utility methods</span>
+    <span class="keyword">public static int</span> square(<span class="keyword">int</span> n) {
+        <span class="keyword">return</span> n * n;
+    }
+
+    <span class="keyword">public static double</span> circleArea(<span class="keyword">double</span> radius) {
+        <span class="keyword">return</span> PI * radius * radius;
+    }
+}
+
+<span class="keyword">public class</span> StaticMembersDemo {
+    <span class="keyword">public static void</span> main(String[] args) {
+        System.out.println(<span class="string">"=== Static Members Demo ===\n"</span>);
+
+        <span class="comment">// Accessing static method before creating any object</span>
+        System.out.println(<span class="string">"Count before creating objects: "</span> + Counter.getCount());
+
+        System.out.println();
+
+        <span class="comment">// Creating objects - static variable is shared</span>
+        Counter c1 = <span class="keyword">new</span> Counter(<span class="string">"First"</span>);
+        Counter c2 = <span class="keyword">new</span> Counter(<span class="string">"Second"</span>);
+        Counter c3 = <span class="keyword">new</span> Counter(<span class="string">"Third"</span>);
+
+        System.out.println();
+
+        <span class="comment">// Static variable reflects total count</span>
+        System.out.println(<span class="string">"Total objects created: "</span> + Counter.getCount());
+
+        <span class="comment">// Each object has unique ID but shares count</span>
+        c1.display();
+        c2.display();
+        c3.display();
+
+        System.out.println(<span class="string">"\n--- Utility Class Example ---"</span>);
+        <span class="comment">// Static members accessed via class name</span>
+        System.out.println(<span class="string">"PI value: "</span> + MathUtils.PI);
+        System.out.println(<span class="string">"Square of 5: "</span> + MathUtils.square(<span class="number">5</span>));
+        System.out.println(<span class="string">"Circle area (r=3): "</span> + MathUtils.circleArea(<span class="number">3</span>));
+
+        System.out.println(<span class="string">"\n--- Static vs Instance ---"</span>);
+        <span class="comment">// Can access static via instance (not recommended)</span>
+        System.out.println(<span class="string">"Via instance (not recommended): "</span> + c1.getCount());
+        <span class="comment">// Recommended way</span>
+        System.out.println(<span class="string">"Via class name: "</span> + Counter.getCount());
+    }
+}
+
+<span class="comment">/*
+OUTPUT:
+=== Static Members Demo ===
+
+Static block executed - Class loaded!
+Initial count: 0
+Count before creating objects: 0
+
+Object created: First (ID: 1)
+Object created: Second (ID: 2)
+Object created: Third (ID: 3)
+
+Total objects created: 3
+ID: 1, Name: First, Total Count: 3
+ID: 2, Name: Second, Total Count: 3
+ID: 3, Name: Third, Total Count: 3
+
+--- Utility Class Example ---
+PI value: 3.14159
+Square of 5: 25
+Circle area (r=3): 28.27431
+
+--- Static vs Instance ---
+Via instance (not recommended): 3
+Via class name: 3
+
+KEY POINTS:
+1. Static variables: One copy shared by all instances
+2. Static methods: Called via class name, cannot access instance members
+3. Static blocks: Execute once when class loads
+4. Static constants: final static (e.g., Math.PI)
+5. Cannot use 'this' or 'super' in static context
+*/</span></code></pre>
                     </div>
                 </details>
             </div>

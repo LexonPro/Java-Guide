@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Cheatsheet - Java Learning Hub</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .cheat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+        .cheat-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 1.2rem;
+            border-top: 4px solid #e94560;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .cheat-card h3 {
+            color: #1a1a2e;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+        .cheat-card pre {
+            background: #1a1a2e;
+            color: #d4d4d4;
+            padding: 12px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            margin: 0.5rem 0;
+        }
+        .cheat-card code {
+            font-family: 'Fira Code', 'Consolas', monospace;
+        }
+        .cheat-card ul {
+            margin: 0.5rem 0;
+            padding-left: 1.2rem;
+            color: #333;
+        }
+        .cheat-card li {
+            margin: 0.3rem 0;
+            font-size: 0.9rem;
+        }
+        .syntax {
+            color: #9cdcfe;
+        }
+        .keyword {
+            color: #e94560;
+        }
+        .string {
+            color: #ce9178;
+        }
+        .comment {
+            color: #6a9955;
+        }
+        .number {
+            color: #b5cea8;
+        }
+        .quick-ref {
+            background: rgba(26, 26, 46, 0.1);
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            margin: 4px 0;
+            color: #1a1a2e;
+        }
+        .section-divider {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 1rem 0;
+            margin: 1rem 0;
+            border-bottom: 2px solid #e94560;
+        }
+        .section-divider h2 {
+            color: #1a1a2e;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand"><a href="index.html">Java Hub</a></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="unit1.html">Unit I</a></li>
+            <li><a href="unit2.html">Unit II</a></li>
+            <li><a href="unit3.html">Unit III</a></li>
+            <li><a href="unit4.html">Unit IV</a></li>
+            <li><a href="unit5.html">Unit V</a></li>
+            <li><a href="mcq.html">MCQ</a></li>
+            <li><a href="practice.html">Practice</a></li>
+            <li><a href="theory.html">Theory</a></li>
+            <li><a href="comparison.html">Compare</a></li>
+            <li><a href="cheatsheet.html" class="active">Cheatsheet</a></li>
+        </ul>
+    </nav>
+
+    <header class="unit-header">
+        <h1>Java Quick Cheatsheet</h1>
+        <p>Essential Java syntax and concepts at a glance</p>
+    </header>
+
+    <nav class="topics-nav">
+        <ul>
+            <li><a href="#basics">Basics</a></li>
+            <li><a href="#oop">OOP</a></li>
+            <li><a href="#exceptions">Exceptions</a></li>
+            <li><a href="#collections">Collections</a></li>
+            <li><a href="#streams">Streams</a></li>
+            <li><a href="#threads">Threads</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <!-- Basic Syntax -->
+        <section id="basics" class="content-section">
+            <div class="section-divider">
+                <h2>Java Basics</h2>
+            </div>
+
+            <div class="cheat-grid">
+                <div class="cheat-card">
+                    <h3>Hello World</h3>
+                    <pre><code><span class="keyword">public class</span> HelloWorld {
+    <span class="keyword">public static void</span> main(String[] args) {
+        System.out.println(<span class="string">"Hello World!"</span>);
+    }
+}</code></pre>
+                </div>
+
+                <div class="cheat-card">
+                    <h3>Data Types</h3>
+                    <pre><code><span class="comment">// Primitives</span>
+<span class="keyword">byte</span> b = <span class="number">127</span>;           <span class="comment">// 1 byte</span>
+<span class="keyword">short</span> s = <span class="number">32767</span>;        <span class="comment">// 2 bytes</span>
+<span class="keyword">int</span> i = <span class="number">2147483647</span>;     <span class="comment">// 4 bytes</span>
+<span class="keyword">long</span> l = <span class="number">9223372036854775807L</span>; <span class="comment">// 8 bytes</span>
+<span class="keyword">float</span> f = <span class="number">3.14f</span>;        <span class="comment">// 4 bytes</span>
+<span class="keyword">double</span> d = <span class="number">3.14159</span>;     <span class="comment">// 8 bytes</span>
+<span class="keyword">char</span> c = <span class="string">'A'</span>;           <span class="comment">// 2 bytes</span>
+<span class="keyword">boolean</span> bool = <span class="keyword">true</span>;   <span class="comment">// 1 bit</span>
+
+<span class="comment">// Reference types</span>
+String str = <span class="string">"Hello"</span>;
+<span class="keyword">int</span>[] arr = {<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>};</code></pre>
+                </div>
+
+                <div class="cheat-card">
+                    <h3>Variables</h3>
+                    <pre><code><span class="comment">// Declaration</span>
+<span class="keyword">int</span> x;
+<span class="keyword">int</span> y = <span class="number">10</span>;
+<span class="keyword">final int</span> CONST = <span class="number">100</span>;  <span class="comment">// Constant</span>
+
+<span class="comment">// Multiple declarations</span>
+<span class="keyword">int</span> a = <span class="number">1</span>, b = <span class="number">2</span>, c = <span class="number">3</span>;
+
+<span class="comment">// Type inference (Java 10+)</span>
+<span class="keyword">var</span> list = <span class="keyword">new</span> ArrayList&lt;String&gt;();
+<span class="keyword">var</span> name = <span class="string">"John"</span>;</code></pre>
+                </div>
+
+                <div class="cheat-card">
+                    <h3>Operators</h3>
+                    <pre><code><span class="comment">// Arithmetic</span>
++ - * / %  ++  --
+
+<span class="comment">// Comparison</span>
+== != &lt; &gt; &lt;= &gt;=
+
+<span class="comment">// Logical</span>
+&& || !
+
+<span class="comment">// Assignment</span>
+= += -= *= /= %=
+
+<span class="comment">// Ternary</span>
+result = (condition) ? value1 : value2;
+
+<span class="comment">// instanceof</span>
+<span class="keyword">if</span> (obj <span class="keyword">instanceof</span> String s) { }</code></pre>
+                </div>
+
+                <div class="cheat-card">
+                    <h3>Control Flow</h3>
+                    <pre><code><span class="comment">// If-else</span>
+<span class="keyword">if</span> (condition) {
+    <span class="comment">// code</span>
+} <span class="keyword">else if</span> (condition2) {
+    <span class="comment">// code</span>
+} <span class="keyword">else</span> {
+    <span class="comment">// code</span>
+}
+
+<span class="comment">// Switch (expression - Java 14+)</span>
+String result = <span class="keyword">switch</span> (day) {
+    <span class="keyword">case</span> <span class="string">"MON"</span>, <span class="string">"TUE"</span> -> <span class="string">"Weekday"</span>;
+    <span class="keyword">case</span> <span class="string">"SAT"</span>, <span class="string">"SUN"</span> -> <span class="string">"Weekend"</span>;
+    <span class="keyword">default</span> -> <span class="string">"Unknown"</span>;
+};</code></pre>
+                </div>
+
+                <div class="cheat-card">
+                    <h3>Loops</h3>
+                    <pre><code><span class="comment">// For loop</span>
+<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) { }
+
+<span class="comment">// Enhanced for loop</span>
+<span class="keyword">for</span> (String item : list) { }
+
+<span class="comment">// While loop</span>
+<span class="keyword">while</span> (condition) { }
+
+<span class="comment">// Do-while loop</span>
+<span class="keyword">do</span> {
+    <span class="comment">// code</span>
+} <span class="keyword">while</span> (condition);
+
+<span class="comment">// Control</span>
+<span class="keyword">break</span>;     <span class="comment">// Exit loop</span>
+<span class="keyword">continue</span>;  <span class="comment">// Skip iteration</span></code></pre>
+                </div>
+
+                <div class="cheat-card">
+                    <h3>Arrays</h3>
+                    <pre><code><span class="comment">// Declaration</span>
+<span class="keyword">int</span>[] arr = <span class="keyword">new int</span>[<span class="number">5</span>];
+<span class="keyword">int</span>[] arr = {<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>};
+
+<span class="comment">// 2D Array</span>
+<span class="keyword">int</span>[][] matrix = <span class="keyword">new int</span>[<span class="number">3</span>][<span class="number">4</span>];
+<span class="keyword">int</span>[][] matrix = {{<span class="number">1</span>,<span class="number">2</span>}, {<span class="number">3</span>,<span class="number">4</span>}};
+
+<span class="comment">// Operations</span>
+arr.length              <span class="comment">// Length</span>
+Arrays.sort(arr);       <span class="comment">// Sort</span>
+Arrays.fill(arr, <span class="number">0</span>);    <span class="comment">// Fill</span>
+Arrays.copyOf(arr, <span class="number">10</span>); <span class="comment">// Copy</span>
+Arrays.toString(arr);   <span class="comment">// Print</span></code></pre>
+                </div>
+
+                <div class="cheat-card">
+                    <h3>Strings</h3>
+                    <pre><code>String s = <span class="string">"Hello"</span>;
+
+<span class="comment">// Common Methods</span>
+s.length()              <span class="comment">// 5</span>
+s.charAt(<span class="number">0</span>)             <span class="comment">// 'H'</span>
+s.substring(<span class="number">1</span>, <span class="number">4</span>)       <span class="comment">// "ell"</span>
+s.toUpperCase()         <span class="comment">// "HELLO"</span>
+s.toLowerCase()         <span class="comment">// "hello"</span>
+s.trim()                <span class="comment">// Remove whitespace</span>
+s.split(<span class="string">","</span>)            <span class="comment">// Split to array</span>
+s.contains(<span class="string">"ell"</span>)       <span class="comment">// true</span>
+s.startsWith(<span class="string">"He"</span>)      <span class="comment">// true</span>
+s.replace(<span class="string">"l"</span>, <span class="string">"L"</span>)    <span class="comment">// "HeLLo"</span>
+s.equals(<span class="string">"Hello"</span>)       <span class="comment">// true</span>
+s.equalsIgnoreCase()    <span class="comment">// Case-insensitive</span>
+
+<span class="comment">// StringBuilder (mutable)</span>
+StringBuilder sb = <span class="keyword">new</span> StringBuilder();
+sb.append(<span class="string">"Hello"</span>).append(<span class="string">" World"</span>);
+sb.toString();          <span class="comment">// "Hello World"</span></code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- OOP Section -->
+        <section id="oop" class="content-section">
+            <div class="section-divider">
+                <h2>Object-Oriented Programming</h2>
+            </div>
+
+            <div class="cheat-grid">
+                <div class="cheat-card">
+                    <h3>Class & Object</h3>
+                    <pre><code><span class="keyword">public class</span> Person {
+    <span class="comment">// Fields</span>
+    <span class="keyword">private</span> String name;
+    <span class="keyword">private int</span> age;
+
+    <span class="comment">// Constructor</span>
+    <span class="keyword">public</span> Person(String name, <span class="keyword">int</span> age) {
+        <span class="keyword">this</span>.name = name;
+        <span class="keyword">this</span>.age = age;
+    }
+
+    <span class="comment">// Getter/Setter</span>
+    <span class="keyword">public</span> String getName() { <span class="keyword">return</span> name; }
+    <span class="keyword">public void</span> setName(String name) {
+        <span class="keyword">this</span>.name = name;
+    }
+}
+
+<span class="comment">// Create object</span>
+Person p = <span class="keyword">new</span> Person(<span class="string">"John"</span>, <span class="number">25</span>);</code></pre>
+                </div>
+
+                <div class="cheat-card">
+                    <h3>Inheritance</h3>
+                    <pre><code><span class="keyword">class</span> Animal {
+    <span class="keyword">protected</span> String name;
+
+    <span class="keyword">public void</span> eat() {
+        System.out.println(<span class="string">"Eating..."</span>);
+    }
+}
+
+<span class="keyword">class</span> Dog <span class="keyword">extends</span> Animal {
+    <span class="keyword">public</span> Dog(String name) {
+        <span class="keyword">super</span>.name = name;  <span class="comment">// Access parent</span>
+    }
+
+    <span class="annotation">@Override</span>
+    <span class="keyword">public void</span> eat() {
+        <span class="keyword">super</span>.eat();  <span class="comment">// Call parent method</span>
+        System.out.println(<span class="string">"Dog eating"</span>);
+    }
+
+    <span class="keyword">public void</span> bark() {
+        System.out.println(<span class="string">"Woof!"</span>);
+    }
+}</code></pre>
+                </div>
+
+                <div class="cheat-card">
+                    <h3>Abstract Class</h3>
+                    <pre><code><span class="keyword">abstract class</span> Shape {
+    <span class="keyword">protected</span> String color;
+
+    <span class="comment">// Abstract method (no body)</span>
+    <span class="keyword">public abstract double</span> area();
+
+    <span class="comment">// Concrete method</span>
+    <span class="keyword">public void</span> display() {
+        System.out.println(<span class="string">"Color: "</span> + color);
+    }
+}
+
+<span class="keyword">class</span> Circle <span class="keyword">extends</span> Shape {
+    <span class="keyword">private double</span> radius;
+
+    <span class="annotation">@Override</span>
+    <span class="keyword">public double</span> area() {
+        <span class="keyword">return</span> Math.PI * radius * radius;
+    }
+}</code></pre>
+                </div>
+
+                <div class="cheat-card">
+                    <h3>Interface</h3>
+                    <pre><code><span class="keyword">interface</span> Drawable {
+    <span class="comment">// Constants (public static final)</span>
+    <span class="keyword">int</span> MAX_SIZE = <span class="number">100</span>;
+
+    <span class="comment">// Abstract method</span>
+    <span class="keyword">void</span> draw();
+
+    <span class="comment">// Default method (Java 8+)</span>
+    <span class="keyword">default void</span> print() {
+        System.out.println(<span class="string">"Printing..."</span>);
+    }
+
+    <span class="comment">// Static method</span>
+    <span class="keyword">static void</span> info() {
+        System.out.println(<span class="string">"Drawable interface"</span>);
+    }
+}
+
+<span class="keyword">class</span> Rectangle <span class="keyword">implements</span> Drawable {
+    <span class="annotation">@Override</span>
+    <span class="keyword">public void</span> draw() {
+        System.out.println(<span class="string">"Drawing rectangle"</span>);
+    }
+}</code></pre>
+                </div>
+
+                <div class="cheat-card">
+                    <h3>Access Modifiers</h3>
+                    <pre><code><span class="keyword">public</span>     <span class="comment">// Everywhere</span>
+<span class="keyword">protected</span>  <span class="comment">// Same package + subclasses</span>
+<span class="comment">// default  // Same package only</span>
+<span class="keyword">private</span>    <span class="comment">// Same class only</span>
+
+<span class="comment">// Non-access modifiers</span>
+<span class="keyword">static</span>     <span class="comment">// Class level</span>
+<span class="keyword">final</span>      <span class="comment">// Cannot change/override/extend</span>
+<span class="keyword">abstract</span>   <span class="comment">// No implementation</span>
+<span class="keyword">synchronized</span> <span class="comment">// Thread safe</span>
+<span class="keyword">volatile</span>   <span class="comment">// Memory visibility</span>
+<span class="keyword">transient</span>  <span class="comment">// Skip serialization</span></code></pre>
+                </div>
+
+                <div class="cheat-card">
+                    <h3>Static Members</h3>
+                    <pre><code><span class="keyword">class</span> Counter {
+    <span class="keyword">private static int</span> count = <span class="number">0</span>;
+    <span class="keyword">private int</span> id;
+
+    <span class="comment">// Static block</span>
+    <span class="keyword">static</span> {
+        System.out.println(<span class="string">"Class loaded"</span>);
+    }
+
+    <span class="keyword">public</span> Counter() {
+        count++;
+        id = count;
+    }
+
+    <span class="comment">// Static method</span>
+    <span class="keyword">public static int</span> getCount() {
+        <span class="keyword">return</span> count;
+    }
+}
+
+<span class="comment">// Access without object</span>
+Counter.getCount();</code></pre>
+                </div>
+
+                <div class="cheat-card">
+                    <h3>Records (Java 16+)</h3>
+                    <pre><code><span class="comment">// Immutable data class</span>
+<span class="keyword">public record</span> Person(String name, <span class="keyword">int</span> age) {
+    <span class="comment">// Compact constructor</span>
+    <span class="keyword">public</span> Person {
+        <span class="keyword">if</span> (age &lt; <span class="number">0</span>)
+            <span class="keyword">throw new</span> IllegalArgumentException();
+    }
+}
+
+<span class="comment">// Usage</span>
+Person p = <span class="keyword">new</span> Person(<span class="string">"John"</span>, <span class="number">25</span>);
+p.name();   <span class="comment">// "John" (accessor)</span>
+p.age();    <span class="comment">// 25</span>
+
+<span class="comment">// Auto-generated: constructor, getters,</span>
+<span class="comment">// equals(), hashCode(), toString()</span></code></pre>
+                </div>
+
+                <div class="cheat-card">
+                    <h3>Enums</h3>
+                    <pre><code><span class="keyword">enum</span> Day {
+    MONDAY, TUESDAY, WEDNESDAY,
+    THURSDAY, FRIDAY, SATURDAY, SUNDAY;
+
+    <span class="keyword">public boolean</span> isWeekend() {
+        <span class="keyword">return this</span> == SATURDAY || <span class="keyword">this</span> == SUNDAY;
+    }
+}
+
+<span class="comment">// Enum with values</span>
+<span class="keyword">enum</span> Status {
+    ACTIVE(<span class="number">1</span>), INACTIVE(<span class="number">0</span>);
+
+    <span class="keyword">private final int</span> code;
+
+    Status(<span class="keyword">int</span> code) {
+        <span class="keyword">this</span>.code = code;
+    }
+
+    <span class="keyword">public int</span> getCode() { <span class="keyword">return</span> code; }
+}
+
+Day day = Day.MONDAY;
+day.name();      <span class="comment">// "MONDAY"</span>
+day.ordinal();   <span class="comment">// 0</span></code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Exception Handling -->
+        <section id="exceptions" class="content-section">
+            <div class="section-divider">
+                <h2>Exception Handling</h2>
+            </div>
+
+            <div class="cheat-grid">
+                <div class="cheat-card">
+                    <h3>Try-Catch-Finally</h3>
+                    <pre><code><span class="keyword">try</span> {
+    <span class="comment">// Risky code</span>
+    <span class="keyword">int</span> result = <span class="number">10</span> / <span class="number">0</span>;
+} <span class="keyword">catch</span> (ArithmeticException e) {
+    System.out.println(<span class="string">"Error: "</span> + e.getMessage());
+} <span class="keyword">catch</span> (Exception e) {
+    <span class="comment">// Catch all other exceptions</span>
+    e.printStackTrace();
+} <span class="keyword">finally</span> {
+    <span class="comment">// Always executes</span>
+    System.out.println(<span class="string">"Cleanup"</span>);
+}
+
+<span class="comment">// Multi-catch (Java 7+)</span>
+<span class="keyword">catch</span> (IOException | SQLException e) { }</code></pre>
+                </div>
+
+                <div class="cheat-card">
+                    <h3>Try-with-Resources</h3>
+                    <pre><code><span class="comment">// Auto-closes resources (Java 7+)</span>
+<span class="keyword">try</span> (
+    FileReader fr = <span class="keyword">new</span> FileReader(<span class="string">"file.txt"</span>);
+    BufferedReader br = <span class="keyword">new</span> BufferedReader(fr)
+) {
+    String line = br.readLine();
+    System.out.println(line);
+} <span class="keyword">catch</span> (IOException e) {
+    e.printStackTrace();
+}
+<span class="comment">// Resources auto-closed here</span></code></pre>
+                </div>
+
+                <div class="cheat-card">
+                    <h3>Throw & Throws</h3>
+                    <pre><code><span class="comment">// throws - declare exceptions</span>
+<span class="keyword">public void</span> readFile(String path)
+        <span class="keyword">throws</span> FileNotFoundException, IOException {
+    FileReader fr = <span class="keyword">new</span> FileReader(path);
+}
+
+<span class="comment">// throw - throw exception</span>
+<span class="keyword">public void</span> validate(<span class="keyword">int</span> age) {
+    <span class="keyword">if</span> (age &lt; <span class="number">0</span>) {
+        <span class="keyword">throw new</span> IllegalArgumentException(
+            <span class="string">"Age cannot be negative"</span>);
+    }
+}</code></pre>
+                </div>
+
+                <div class="cheat-card">
+                    <h3>Custom Exception</h3>
+                    <pre><code><span class="comment">// Checked exception</span>
+<span class="keyword">class</span> CustomException <span class="keyword">extends</span> Exception {
+    <span class="keyword">public</span> CustomException(String msg) {
+        <span class="keyword">super</span>(msg);
+    }
+}
+
+<span class="comment">// Unchecked exception</span>
+<span class="keyword">class</span> CustomRuntimeException
+        <span class="keyword">extends</span> RuntimeException {
+    <span class="keyword">public</span> CustomRuntimeException(String msg) {
+        <span class="keyword">super</span>(msg);
+    }
+}
+
+<span class="comment">// Usage</span>
+<span class="keyword">throw new</span> CustomException(<span class="string">"Error occurred"</span>);</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Collections -->
+        <section id="collections" class="content-section">
+            <div class="section-divider">
+                <h2>Collections Framework</h2>
+            </div>
+
+            <div class="cheat-grid">
+                <div class="cheat-card">
+                    <h3>List</h3>
+                    <pre><code><span class="comment">// ArrayList (most used)</span>
+List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();
+list.add(<span class="string">"A"</span>);
+list.add(<span class="number">0</span>, <span class="string">"B"</span>);    <span class="comment">// Add at index</span>
+list.get(<span class="number">0</span>);         <span class="comment">// Get element</span>
+list.set(<span class="number">0</span>, <span class="string">"C"</span>);    <span class="comment">// Update</span>
+list.remove(<span class="number">0</span>);       <span class="comment">// Remove by index</span>
+list.remove(<span class="string">"A"</span>);     <span class="comment">// Remove by value</span>
+list.size();          <span class="comment">// Size</span>
+list.contains(<span class="string">"A"</span>);  <span class="comment">// Check existence</span>
+list.indexOf(<span class="string">"A"</span>);   <span class="comment">// Find index</span>
+list.isEmpty();       <span class="comment">// Check empty</span>
+list.clear();         <span class="comment">// Remove all</span>
+
+<span class="comment">// Immutable list (Java 9+)</span>
+List&lt;String&gt; immutable = List.of(<span class="string">"A"</span>, <span class="string">"B"</span>, <span class="string">"C"</span>);</code></pre>
+                </div>
+
+                <div class="cheat-card">
+                    <h3>Set</h3>
+                    <pre><code><span class="comment">// HashSet (no order, fast)</span>
+Set&lt;String&gt; hashSet = <span class="keyword">new</span> HashSet&lt;&gt;();
+
+<span class="comment">// LinkedHashSet (insertion order)</span>
+Set&lt;String&gt; linkedSet = <span class="keyword">new</span> LinkedHashSet&lt;&gt;();
+
+<span class="comment">// TreeSet (sorted)</span>
+Set&lt;String&gt; treeSet = <span class="keyword">new</span> TreeSet&lt;&gt;();
+
+<span class="comment">// Operations</span>
+set.add(<span class="string">"A"</span>);
+set.remove(<span class="string">"A"</span>);
+set.contains(<span class="string">"A"</span>);
+set.size();
+
+<span class="comment">// Set operations</span>
+set1.addAll(set2);     <span class="comment">// Union</span>
+set1.retainAll(set2);  <span class="comment">// Intersection</span>
+set1.removeAll(set2);  <span class="comment">// Difference</span>
+
+<span class="comment">// Immutable set</span>
+Set&lt;String&gt; immutable = Set.of(<span class="string">"A"</span>, <span class="string">"B"</span>);</code></pre>
+                </div>
+
+                <div class="cheat-card">
+                    <h3>Map</h3>
+                    <pre><code><span class="comment">// HashMap (no order, fast)</span>
+Map&lt;String, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();
+
+<span class="comment">// Operations</span>
+map.put(<span class="string">"A"</span>, <span class="number">1</span>);
+map.get(<span class="string">"A"</span>);           <span class="comment">// Returns 1</span>
+map.getOrDefault(<span class="string">"B"</span>, <span class="number">0</span>); <span class="comment">// Default if missing</span>
+map.remove(<span class="string">"A"</span>);
+map.containsKey(<span class="string">"A"</span>);
+map.containsValue(<span class="number">1</span>);
+map.keySet();           <span class="comment">// All keys</span>
+map.values();           <span class="comment">// All values</span>
+map.entrySet();         <span class="comment">// All entries</span>
+
+<span class="comment">// Iterate</span>
+<span class="keyword">for</span> (Map.Entry&lt;String, Integer&gt; e : map.entrySet()) {
+    e.getKey();
+    e.getValue();
+}
+map.forEach((k, v) -> System.out.println(k + <span class="string">":"</span> + v));
+
+<span class="comment">// Immutable map</span>
+Map&lt;String, Integer&gt; m = Map.of(<span class="string">"A"</span>, <span class="number">1</span>, <span class="string">"B"</span>, <span class="number">2</span>);</code></pre>
+                </div>
+
+                <div class="cheat-card">
+                    <h3>Queue & Deque</h3>
+                    <pre><code><span class="comment">// Queue (FIFO)</span>
+Queue&lt;String&gt; queue = <span class="keyword">new</span> LinkedList&lt;&gt;();
+queue.offer(<span class="string">"A"</span>);    <span class="comment">// Add to tail</span>
+queue.poll();        <span class="comment">// Remove from head</span>
+queue.peek();        <span class="comment">// View head</span>
+
+<span class="comment">// PriorityQueue (min-heap)</span>
+Queue&lt;Integer&gt; pq = <span class="keyword">new</span> PriorityQueue&lt;&gt;();
+
+<span class="comment">// Deque (double-ended)</span>
+Deque&lt;String&gt; deque = <span class="keyword">new</span> ArrayDeque&lt;&gt;();
+deque.addFirst(<span class="string">"A"</span>);
+deque.addLast(<span class="string">"B"</span>);
+deque.removeFirst();
+deque.removeLast();
+
+<span class="comment">// As Stack</span>
+deque.push(<span class="string">"A"</span>);   <span class="comment">// addFirst</span>
+deque.pop();       <span class="comment">// removeFirst</span></code></pre>
+                </div>
+
+                <div class="cheat-card">
+                    <h3>Collections Utility</h3>
+                    <pre><code><span class="comment">// Sorting</span>
+Collections.sort(list);
+Collections.sort(list, Collections.reverseOrder());
+list.sort(Comparator.comparing(String::length));
+
+<span class="comment">// Searching</span>
+Collections.binarySearch(sortedList, key);
+
+<span class="comment">// Shuffle, Reverse, Fill</span>
+Collections.shuffle(list);
+Collections.reverse(list);
+Collections.fill(list, value);
+
+<span class="comment">// Min, Max</span>
+Collections.min(list);
+Collections.max(list);
+
+<span class="comment">// Thread-safe wrappers</span>
+List&lt;String&gt; syncList =
+    Collections.synchronizedList(<span class="keyword">new</span> ArrayList&lt;&gt;());
+
+<span class="comment">// Unmodifiable</span>
+List&lt;String&gt; readOnly =
+    Collections.unmodifiableList(list);</code></pre>
+                </div>
+
+                <div class="cheat-card">
+                    <h3>Comparator</h3>
+                    <pre><code><span class="comment">// Lambda comparator</span>
+list.sort((a, b) -> a.compareTo(b));
+list.sort((a, b) -> a.length() - b.length());
+
+<span class="comment">// Method reference</span>
+list.sort(Comparator.naturalOrder());
+list.sort(Comparator.reverseOrder());
+
+<span class="comment">// Comparing methods</span>
+Comparator&lt;Person&gt; byName =
+    Comparator.comparing(Person::getName);
+
+Comparator&lt;Person&gt; byAge =
+    Comparator.comparingInt(Person::getAge);
+
+<span class="comment">// Chaining</span>
+Comparator&lt;Person&gt; comp =
+    Comparator.comparing(Person::getName)
+              .thenComparingInt(Person::getAge)
+              .reversed();</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Streams & Lambdas -->
+        <section id="streams" class="content-section">
+            <div class="section-divider">
+                <h2>Streams & Lambdas</h2>
+            </div>
+
+            <div class="cheat-grid">
+                <div class="cheat-card">
+                    <h3>Lambda Expressions</h3>
+                    <pre><code><span class="comment">// Syntax</span>
+(params) -> expression
+(params) -> { statements; }
+
+<span class="comment">// Examples</span>
+() -> <span class="number">42</span>                      <span class="comment">// No params</span>
+x -> x * <span class="number">2</span>                    <span class="comment">// Single param</span>
+(x, y) -> x + y               <span class="comment">// Multiple params</span>
+(String s) -> s.length()      <span class="comment">// Explicit type</span>
+(x, y) -> { <span class="keyword">return</span> x + y; }   <span class="comment">// Block</span>
+
+<span class="comment">// Functional interfaces</span>
+Runnable r = () -> System.out.println(<span class="string">"Hi"</span>);
+Comparator&lt;String&gt; c = (a, b) -> a.compareTo(b);
+Predicate&lt;Integer&gt; p = n -> n > <span class="number">0</span>;
+Function&lt;String, Integer&gt; f = s -> s.length();
+Consumer&lt;String&gt; con = s -> System.out.println(s);
+Supplier&lt;Double&gt; sup = () -> Math.random();</code></pre>
+                </div>
+
+                <div class="cheat-card">
+                    <h3>Method References</h3>
+                    <pre><code><span class="comment">// Static method</span>
+Integer::parseInt
+Math::abs
+
+<span class="comment">// Instance method (specific object)</span>
+System.out::println
+str::toUpperCase
+
+<span class="comment">// Instance method (any object)</span>
+String::length
+String::toUpperCase
+
+<span class="comment">// Constructor</span>
+ArrayList::new
+Person::new
+
+<span class="comment">// Examples</span>
+list.forEach(System.out::println);
+list.stream().map(String::toUpperCase);
+list.stream().map(Integer::parseInt);</code></pre>
+                </div>
+
+                <div class="cheat-card">
+                    <h3>Stream Creation</h3>
+                    <pre><code><span class="comment">// From Collection</span>
+list.stream()
+list.parallelStream()
+
+<span class="comment">// From Array</span>
+Arrays.stream(array)
+Stream.of(<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>)
+
+<span class="comment">// Generate/Iterate</span>
+Stream.generate(Math::random).limit(<span class="number">10</span>)
+Stream.iterate(<span class="number">0</span>, n -> n + <span class="number">1</span>).limit(<span class="number">10</span>)
+Stream.iterate(<span class="number">0</span>, n -> n &lt; <span class="number">10</span>, n -> n + <span class="number">1</span>)
+
+<span class="comment">// Primitive streams</span>
+IntStream.range(<span class="number">0</span>, <span class="number">10</span>)      <span class="comment">// 0-9</span>
+IntStream.rangeClosed(<span class="number">1</span>, <span class="number">10</span>) <span class="comment">// 1-10</span>
+
+<span class="comment">// Empty stream</span>
+Stream.empty()</code></pre>
+                </div>
+
+                <div class="cheat-card">
+                    <h3>Intermediate Operations</h3>
+                    <pre><code><span class="comment">// Filter - keep matching elements</span>
+.filter(x -> x > <span class="number">0</span>)
+
+<span class="comment">// Map - transform elements</span>
+.map(x -> x * <span class="number">2</span>)
+.mapToInt(String::length)
+
+<span class="comment">// FlatMap - flatten nested</span>
+.flatMap(list -> list.stream())
+
+<span class="comment">// Sort</span>
+.sorted()
+.sorted(Comparator.reverseOrder())
+
+<span class="comment">// Distinct - remove duplicates</span>
+.distinct()
+
+<span class="comment">// Limit & Skip</span>
+.limit(<span class="number">5</span>)
+.skip(<span class="number">2</span>)
+
+<span class="comment">// Peek - debug/inspect</span>
+.peek(System.out::println)</code></pre>
+                </div>
+
+                <div class="cheat-card">
+                    <h3>Terminal Operations</h3>
+                    <pre><code><span class="comment">// forEach</span>
+.forEach(System.out::println)
+
+<span class="comment">// Collect to collection</span>
+.collect(Collectors.toList())
+.collect(Collectors.toSet())
+.toList()  <span class="comment">// Java 16+</span>
+
+<span class="comment">// Reduce - combine elements</span>
+.reduce(<span class="number">0</span>, (a, b) -> a + b)
+.reduce(Integer::sum)
+
+<span class="comment">// Count, Min, Max</span>
+.count()
+.min(Comparator.naturalOrder())
+.max(Comparator.naturalOrder())
+
+<span class="comment">// Find</span>
+.findFirst()
+.findAny()
+
+<span class="comment">// Match</span>
+.anyMatch(x -> x > <span class="number">0</span>)
+.allMatch(x -> x > <span class="number">0</span>)
+.noneMatch(x -> x > <span class="number">0</span>)
+
+<span class="comment">// To array</span>
+.toArray(String[]::new)</code></pre>
+                </div>
+
+                <div class="cheat-card">
+                    <h3>Collectors</h3>
+                    <pre><code><span class="comment">// Basic collectors</span>
+Collectors.toList()
+Collectors.toSet()
+Collectors.toCollection(TreeSet::new)
+
+<span class="comment">// Joining strings</span>
+Collectors.joining(<span class="string">", "</span>)
+Collectors.joining(<span class="string">", "</span>, <span class="string">"["</span>, <span class="string">"]"</span>)
+
+<span class="comment">// Counting</span>
+Collectors.counting()
+
+<span class="comment">// Summarizing</span>
+Collectors.summarizingInt(String::length)
+
+<span class="comment">// Grouping</span>
+Collectors.groupingBy(String::length)
+Collectors.groupingBy(s -> s.charAt(<span class="number">0</span>),
+                      Collectors.counting())
+
+<span class="comment">// Partitioning</span>
+Collectors.partitioningBy(x -> x > <span class="number">0</span>)
+
+<span class="comment">// To Map</span>
+Collectors.toMap(
+    Person::getName,
+    Person::getAge
+)</code></pre>
+                </div>
+
+                <div class="cheat-card">
+                    <h3>Optional</h3>
+                    <pre><code><span class="comment">// Creating</span>
+Optional.empty()
+Optional.of(value)         <span class="comment">// Non-null</span>
+Optional.ofNullable(value) <span class="comment">// May be null</span>
+
+<span class="comment">// Checking</span>
+opt.isPresent()
+opt.isEmpty()              <span class="comment">// Java 11+</span>
+opt.ifPresent(v -> use(v))
+
+<span class="comment">// Getting value</span>
+opt.get()                  <span class="comment">// Throws if empty</span>
+opt.orElse(defaultValue)
+opt.orElseGet(() -> compute())
+opt.orElseThrow()
+opt.orElseThrow(() -> <span class="keyword">new</span> Exception())
+
+<span class="comment">// Transform</span>
+opt.map(String::toUpperCase)
+opt.flatMap(this::findById)
+opt.filter(s -> s.length() > <span class="number">5</span>)
+
+<span class="comment">// Stream</span>
+opt.stream()  <span class="comment">// Java 9+</span></code></pre>
+                </div>
+
+                <div class="cheat-card">
+                    <h3>Complete Stream Example</h3>
+                    <pre><code>List&lt;String&gt; names = Arrays.asList(
+    <span class="string">"John"</span>, <span class="string">"Jane"</span>, <span class="string">"Bob"</span>, <span class="string">"Alice"</span>);
+
+<span class="comment">// Complex pipeline</span>
+Map&lt;Integer, List&lt;String&gt;&gt; byLength = names.stream()
+    .filter(s -> s.length() >= <span class="number">3</span>)
+    .map(String::toUpperCase)
+    .sorted()
+    .collect(Collectors.groupingBy(String::length));
+
+<span class="comment">// Parallel processing</span>
+<span class="keyword">long</span> count = list.parallelStream()
+    .filter(s -> s.startsWith(<span class="string">"A"</span>))
+    .count();
+
+<span class="comment">// Find and process</span>
+names.stream()
+    .filter(n -> n.startsWith(<span class="string">"J"</span>))
+    .findFirst()
+    .ifPresent(System.out::println);</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Multithreading -->
+        <section id="threads" class="content-section">
+            <div class="section-divider">
+                <h2>Multithreading</h2>
+            </div>
+
+            <div class="cheat-grid">
+                <div class="cheat-card">
+                    <h3>Creating Threads</h3>
+                    <pre><code><span class="comment">// Method 1: Extend Thread</span>
+<span class="keyword">class</span> MyThread <span class="keyword">extends</span> Thread {
+    <span class="annotation">@Override</span>
+    <span class="keyword">public void</span> run() {
+        System.out.println(<span class="string">"Thread running"</span>);
+    }
+}
+<span class="keyword">new</span> MyThread().start();
+
+<span class="comment">// Method 2: Implement Runnable</span>
+<span class="keyword">class</span> MyRunnable <span class="keyword">implements</span> Runnable {
+    <span class="annotation">@Override</span>
+    <span class="keyword">public void</span> run() {
+        System.out.println(<span class="string">"Runnable running"</span>);
+    }
+}
+<span class="keyword">new</span> Thread(<span class="keyword">new</span> MyRunnable()).start();
+
+<span class="comment">// Method 3: Lambda</span>
+<span class="keyword">new</span> Thread(() -> {
+    System.out.println(<span class="string">"Lambda thread"</span>);
+}).start();</code></pre>
+                </div>
+
+                <div class="cheat-card">
+                    <h3>Thread Methods</h3>
+                    <pre><code><span class="comment">// Starting</span>
+thread.start();   <span class="comment">// Start thread</span>
+thread.run();     <span class="comment">// DON'T - runs in current thread</span>
+
+<span class="comment">// Pausing</span>
+Thread.sleep(<span class="number">1000</span>);  <span class="comment">// Sleep for 1 second</span>
+Thread.yield();      <span class="comment">// Hint to scheduler</span>
+
+<span class="comment">// Waiting</span>
+thread.join();       <span class="comment">// Wait for thread to finish</span>
+thread.join(<span class="number">1000</span>);   <span class="comment">// Wait with timeout</span>
+
+<span class="comment">// Info</span>
+thread.getName();
+thread.setName(<span class="string">"MyThread"</span>);
+thread.getPriority();
+thread.isAlive();
+thread.getState();
+Thread.currentThread();
+
+<span class="comment">// Daemon</span>
+thread.setDaemon(<span class="keyword">true</span>);
+thread.isDaemon();</code></pre>
+                </div>
+
+                <div class="cheat-card">
+                    <h3>Synchronization</h3>
+                    <pre><code><span class="comment">// Synchronized method</span>
+<span class="keyword">public synchronized void</span> increment() {
+    count++;
+}
+
+<span class="comment">// Synchronized block</span>
+<span class="keyword">public void</span> increment() {
+    <span class="keyword">synchronized</span> (<span class="keyword">this</span>) {
+        count++;
+    }
+}
+
+<span class="comment">// Synchronized on specific object</span>
+<span class="keyword">private final</span> Object lock = <span class="keyword">new</span> Object();
+<span class="keyword">synchronized</span> (lock) {
+    <span class="comment">// Critical section</span>
+}
+
+<span class="comment">// Static synchronization</span>
+<span class="keyword">public static synchronized void</span> method() {
+    <span class="comment">// Locks on Class object</span>
+}</code></pre>
+                </div>
+
+                <div class="cheat-card">
+                    <h3>wait/notify</h3>
+                    <pre><code><span class="comment">// Producer-Consumer pattern</span>
+<span class="keyword">synchronized</span> (lock) {
+    <span class="keyword">while</span> (!condition) {
+        lock.wait();   <span class="comment">// Release lock, wait</span>
+    }
+    <span class="comment">// Process</span>
+    lock.notify();     <span class="comment">// Wake one thread</span>
+    lock.notifyAll();  <span class="comment">// Wake all threads</span>
+}
+
+<span class="comment">// Rules:</span>
+<span class="comment">// - Must be in synchronized block</span>
+<span class="comment">// - Must own the lock</span>
+<span class="comment">// - Use while, not if (spurious wakeup)</span></code></pre>
+                </div>
+
+                <div class="cheat-card">
+                    <h3>ExecutorService</h3>
+                    <pre><code><span class="comment">// Creating executors</span>
+ExecutorService exec =
+    Executors.newFixedThreadPool(<span class="number">4</span>);
+ExecutorService single =
+    Executors.newSingleThreadExecutor();
+ExecutorService cached =
+    Executors.newCachedThreadPool();
+
+<span class="comment">// Submit tasks</span>
+exec.execute(() -> doTask());     <span class="comment">// Runnable</span>
+Future&lt;Integer&gt; f = exec.submit(() -> {
+    <span class="keyword">return</span> <span class="number">42</span>;  <span class="comment">// Callable</span>
+});
+
+<span class="comment">// Get result</span>
+Integer result = f.get();         <span class="comment">// Blocking</span>
+Integer result = f.get(<span class="number">1</span>, TimeUnit.SECONDS);
+
+<span class="comment">// Shutdown</span>
+exec.shutdown();            <span class="comment">// Graceful</span>
+exec.shutdownNow();         <span class="comment">// Force</span>
+exec.awaitTermination(<span class="number">5</span>, TimeUnit.SECONDS);</code></pre>
+                </div>
+
+                <div class="cheat-card">
+                    <h3>Thread States</h3>
+                    <pre><code><span class="comment">// Thread.State enum</span>
+NEW          <span class="comment">// Created, not started</span>
+RUNNABLE     <span class="comment">// Running or ready to run</span>
+BLOCKED      <span class="comment">// Waiting for lock</span>
+WAITING      <span class="comment">// wait(), join()</span>
+TIMED_WAITING <span class="comment">// sleep(), wait(timeout)</span>
+TERMINATED   <span class="comment">// Finished execution</span>
+
+<span class="comment">// Check state</span>
+Thread.State state = thread.getState();
+
+<span class="comment">// Lifecycle:</span>
+<span class="comment">// NEW -> start() -> RUNNABLE</span>
+<span class="comment">// RUNNABLE -> wait() -> WAITING</span>
+<span class="comment">// WAITING -> notify() -> RUNNABLE</span>
+<span class="comment">// RUNNABLE -> sleep() -> TIMED_WAITING</span>
+<span class="comment">// RUNNABLE -> run() ends -> TERMINATED</span></code></pre>
+                </div>
+
+                <div class="cheat-card">
+                    <h3>Volatile & Atomic</h3>
+                    <pre><code><span class="comment">// Volatile - visibility only</span>
+<span class="keyword">private volatile boolean</span> running = <span class="keyword">true</span>;
+
+<span class="keyword">public void</span> stop() {
+    running = <span class="keyword">false</span>;  <span class="comment">// Visible to all threads</span>
+}
+
+<span class="keyword">public void</span> run() {
+    <span class="keyword">while</span> (running) {
+        <span class="comment">// Do work</span>
+    }
+}
+
+<span class="comment">// Atomic - visibility + atomicity</span>
+AtomicInteger counter = <span class="keyword">new</span> AtomicInteger(<span class="number">0</span>);
+counter.incrementAndGet();  <span class="comment">// Thread-safe ++</span>
+counter.get();
+counter.set(<span class="number">10</span>);
+counter.compareAndSet(<span class="number">10</span>, <span class="number">20</span>);  <span class="comment">// CAS</span>
+
+<span class="comment">// Other atomics</span>
+AtomicLong, AtomicBoolean, AtomicReference</code></pre>
+                </div>
+
+                <div class="cheat-card">
+                    <h3>Common Patterns</h3>
+                    <pre><code><span class="comment">// Thread-safe singleton</span>
+<span class="keyword">public class</span> Singleton {
+    <span class="keyword">private static volatile</span> Singleton instance;
+
+    <span class="keyword">public static</span> Singleton getInstance() {
+        <span class="keyword">if</span> (instance == <span class="keyword">null</span>) {
+            <span class="keyword">synchronized</span> (Singleton.<span class="keyword">class</span>) {
+                <span class="keyword">if</span> (instance == <span class="keyword">null</span>) {
+                    instance = <span class="keyword">new</span> Singleton();
+                }
+            }
+        }
+        <span class="keyword">return</span> instance;
+    }
+}
+
+<span class="comment">// CompletableFuture (Java 8+)</span>
+CompletableFuture.supplyAsync(() -> fetchData())
+    .thenApply(data -> process(data))
+    .thenAccept(result -> display(result))
+    .exceptionally(ex -> handleError(ex));</code></pre>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Java Hub</h3>
+                <p>Your complete guide to mastering Java programming.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Java Learning Hub. Made for Java learners.</p>
+        </div>
+    </footer>
+</body>
+</html>
