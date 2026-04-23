@@ -182,5 +182,21 @@ public class HelloWorld {
             <p>Java Learning Hub. Made for Java learners.</p>
         </div>
     </footer>
+    <script>
+let lastScroll = 0;
+const navbar = document.querySelector(".navbar");
+
+window.addEventListener("scroll", () => {
+    let currentScroll = window.pageYOffset;
+
+    if (currentScroll > lastScroll) {
+        navbar.classList.add("hide");
+    } else {
+        navbar.classList.remove("hide");
+    }
+
+    lastScroll = currentScroll;
+});
+</script>
 </body>
 </html>
